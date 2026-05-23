@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { colores, etiquetas } from '../data/zonas'
+import { t } from '../data/traducciones'
 
 const distritos = [
   // NORTE DEL RÍO
@@ -36,7 +37,7 @@ export default function Mapa({ idioma = 'es' }) {
   const [seleccionado, setSeleccionado] = useState(null)
   const [hover, setHover] = useState(null)
   const d = seleccionado
-  const tr = require('../data/traducciones').t[idioma]
+  const tr = t[idioma]
 
   return (
     <div style={{ display: 'grid', gridTemplateColumns: d ? '1fr 360px' : '1fr', gap: '16px', alignItems: 'start' }}>
