@@ -34,8 +34,7 @@ export async function generateMetadata({ params }) {
       description: descripcion,
     }
   }
-}f
-
+}
 export default async function DistritoPage({ params }) {
   const { slug } = await params
   const zona = zonas.find(z => z.slug === slug)
@@ -50,46 +49,11 @@ export default async function DistritoPage({ params }) {
   const totalFuturo = Math.round(zona.precioReal * (1 + zona.prediccion24 / 100))
   const descuento = Math.round((zona.precio - zona.precioReal) / zona.precio * 100)
 
-const schema = {
-    "@context": "https://schema.org",
-    "@type": "RealEstateListing",
-    "name": `Propiedades en ${zona.nombre}, Valencia`,
-    "description": zona.descripcion,
-    "areaServed": {
-      "@type": "Place",
-      "name": `${zona.nombre}, Valencia, España`,
-      "address": {
-        "@type": "PostalAddress",
-        "addressLocality": "Valencia",
-        "addressRegion": "Comunidad Valenciana",
-        "addressCountry": "ES",
-        "postalCode": zona.cp[0]
-      }
-    },
-    "offers": {
-      "@type": "Offer",
-      "price": zona.precioReal,
-      "priceCurrency": "EUR",
-      "priceSpecification": {
-        "@type": "UnitPriceSpecification",
-        "price": zona.precioReal,
-        "priceCurrency": "EUR",
-        "referenceQuantity": {
-          "@type": "QuantitativeValue",
-          "value": 1,
-          "unitCode": "MTK"
-        }
-      }
-    }
-  }
 
   return (
     <main style={{ fontFamily: 'sans-serif', minHeight: '100vh', background: '#f8faf8' }}>
 
-<script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
+
 
       {/* HERO */}
       <div style={{ background: `linear-gradient(135deg, ${colores[zona.tipo]} 0%, ${colores[zona.tipo]}cc 100%)`, padding: '56px 32px', color: '#fff' }}>
