@@ -40,7 +40,7 @@ export default function RootLayout({ children }) {
         <Navbar />
         {children}
       </body>
-      <footer style={{
+    <footer style={{
   background: '#0B1F3A',
   borderTop: '1px solid rgba(201,168,76,0.2)',
   padding: '40px 48px',
@@ -57,27 +57,17 @@ export default function RootLayout({ children }) {
       }}>V</div>
       <div>
         <div style={{ fontSize: '14px', fontWeight: '700', color: '#FFFFFF', fontFamily: 'Georgia, serif' }}>ValenciaCity Properties</div>
-        <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)', fontFamily: 'Arial, sans-serif' }}>© 2026 Todos los derechos reservados</div>
+        <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)', fontFamily: 'Arial, sans-serif' }}>© 2026</div>
       </div>
     </div>
-    <div style={{ display: 'flex', gap: '32px', flexWrap: 'wrap' }}>
-      {[
-        { href: '/', label: 'Inicio' },
-        { href: '/conocenos', label: 'Conócenos' },
-        { href: '/contactanos', label: 'Contáctanos' },
-        { href: 'https://www.valenciacity.properties/privacidad', label: 'Privacidad' },
-      ].map(item => (
-        <a key={item.href} href={item.href} style={{
-          color: 'rgba(255,255,255,0.5)',
-          fontSize: '12px',
-          textDecoration: 'none',
-          letterSpacing: '0.08em',
-          textTransform: 'uppercase',
-          fontFamily: 'Arial, sans-serif',
-          transition: 'color 0.2s',
-        }}>{item.label}</a>
-      ))}
-    </div>
+    <a href="https://www.valenciacity.properties/privacidad" style={{
+      color: 'rgba(255,255,255,0.4)',
+      fontSize: '12px',
+      textDecoration: 'none',
+      letterSpacing: '0.08em',
+      textTransform: 'uppercase',
+      fontFamily: 'Arial, sans-serif',
+    }}>Privacy Policy · Politique de confidentialité · Datenschutz · Política de Privacidad</a>
   </div>
 </footer>
     </html>
