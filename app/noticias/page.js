@@ -1,45 +1,94 @@
-'use client'
-import dynamic from 'next/dynamic'
 import Link from 'next/link'
-import { useState, useEffect } from 'react'
-import { t } from './data/traducciones'
 
-const Mapa = dynamic(() => import('./components/Mapa'), { ssr: false })
+export const metadata = {
+  title: 'Noticias del mercado inmobiliario de Valencia — ValenciaCity Properties',
+  description: 'Análisis y noticias sobre el mercado inmobiliario de Valencia. Descubre qué barrios están subiendo y por qué.'
+}
 
-export default function Home() {
-  const [idioma, setIdioma] = useState('es')
+const noticias = [
+  {
+    slug: 'la-pechina-extramurs-revalorizacion',
+    fecha: 'Mayo 2026',
+    categoria: 'Análisis de barrio',
+    titulo: 'La Pechina (Extramurs): el barrio que se transforma y alcanza los 3.000€/m²',
+    subtitulo: 'Zonas verdes, nuevos parques y la zona naranja de aparcamiento están cambiando la cara de uno de los barrios más céntricos de Valencia.',
+    imagen: '🌿',
+    tiempo: '3 min lectura',
+  }
+]
 
-  useEffect(() => {
-    const guardado = localStorage.getItem('idioma') || 'es'
-    setIdioma(guardado)
-    const handler = () => setIdioma(localStorage.getItem('idioma') || 'es')
-    window.addEventListener('idiomaChange', handler)
-    return () => window.removeEventListener('idiomaChange', handler)
-  }, [])
-
-  const tr = t[idioma]
-
+export default function Noticias() {
   return (
-    <main style={{ fontFamily: 'sans-serif', minHeight: '100vh', background: '#f8faf8' }}>
-      <div style={{ background: 'linear-gradient(135deg, #2d5a0e 0%, #4a8c1c 100%)', padding: '48px 32px', textAlign: 'center', color: '#fff' }}>
-        <h1 style={{ fontSize: '36px', fontWeight: '800', margin: '0 0 12px' }}>{tr.hero.titulo}</h1>
-        <p style={{ fontSize: '18px', opacity: 0.9, margin: '0 0 24px', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>{tr.hero.subtitulo}</p>
-        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
-          <div style={{ background: 'rgba(255,255,255,0.15)', padding: '10px 20px', borderRadius: '30px', fontSize: '14px' }}>{tr.hero.badge1}</div>
-          <div style={{ background: 'rgba(255,255,255,0.15)', padding: '10px 20px', borderRadius: '30px', fontSize: '14px' }}>{tr.hero.badge2}</div>
-          <div style={{ background: 'rgba(255,255,255,0.15)', padding: '10px 20px', borderRadius: '30px', fontSize: '14px' }}>{tr.hero.badge3}</div>
+    <main style={{ fontFamily: 'Georgia, serif', minHeight: '100vh', background: '#F8F5EF' }}>
+
+      {/* HERO */}
+      <div style={{
+        background: 'linear-gradient(160deg, #0B1F3A 0%, #152D52 60%, #1A3A6B 100%)',
+        padding: '80px 48px 60px',
+        position: 'relative',
+        overflow: 'hidden',
+      }}>
+        <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)' }} />
+        <div style={{ maxWidth: '800px', margin: '0 auto', position: 'relative' }}>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+            <div style={{ width: '32px', height: '1px', background: '#C9A84C' }} />
+            <span style={{ fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C9A84C', fontFamily: 'Arial, sans-serif' }}>Market Intelligence</span>
+          </div>
+          <h1 style={{ fontSize: '48px', fontWeight: '700', color: '#FFFFFF', marginBottom: '16px', fontFamily: 'Georgia, serif' }}>Noticias</h1>
+          <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.65)', fontFamily: 'Arial, sans-serif', lineHeight: '1.7', maxWidth: '520px' }}>
+            Análisis y tendencias del mercado inmobiliario de Valencia. Lo que necesitas saber antes de comprar.
+          </p>
         </div>
       </div>
-      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '32px 20px' }}>
-        <Mapa idioma={idioma} />
+
+      {/* LISTA NOTICIAS */}
+      <div style={{ maxWidth: '860px', margin: '0 auto', padding: '64px 24px' }}>
+        {noticias.map((noticia, i) => (
+          <Link key={i} href={`/noticias/${noticia.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
+            <div style={{
+              background: '#fff',
+              borderRadius: '16px',
+              padding: '36px',
+              border: '1px solid #D4C9B0',
+              boxShadow: '0 2px 16px rgba(11,31,58,0.06)',
+              marginBottom: '24px',
+              transition: 'all 0.2s',
+              cursor: 'pointer',
+            }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '20px' }}>
+                <span style={{
+                  fontSize: '11px', letterSpacing: '0.15em', textTransform: 'uppercase',
+                  color: '#C9A84C', fontFamily: 'Arial, sans-serif', fontWeight: '600',
+                  background: 'rgba(201,168,76,0.1)', padding: '4px 12px', borderRadius: '4px',
+                  border: '1px solid rgba(201,168,76,0.3)'
+                }}>{noticia.categoria}</span>
+                <span style={{ fontSize: '12px', color: '#8A9BB0', fontFamily: 'Arial, sans-serif' }}>{noticia.fecha}</span>
+                <span style={{ fontSize: '12px', color: '#8A9BB0', fontFamily: 'Arial, sans-serif' }}>· {noticia.tiempo}</span>
+              </div>
+
+              <div style={{ display: 'flex', gap: '24px', alignItems: 'flex-start' }}>
+                <div style={{
+                  width: '64px', height: '64px', flexShrink: 0,
+                  background: 'linear-gradient(135deg, rgba(201,168,76,0.1), rgba(201,168,76,0.2))',
+                  borderRadius: '12px', border: '1px solid rgba(201,168,76,0.2)',
+                  display: 'flex', alignItems: 'center', justifyContent: 'center',
+                  fontSize: '28px'
+                }}>{noticia.imagen}</div>
+                <div style={{ flex: 1 }}>
+                  <h2 style={{ fontSize: '22px', fontWeight: '700', color: '#0B1F3A', marginBottom: '10px', fontFamily: 'Georgia, serif', lineHeight: '1.3' }}>{noticia.titulo}</h2>
+                  <p style={{ fontSize: '15px', color: '#4A5568', lineHeight: '1.7', fontFamily: 'Arial, sans-serif', margin: 0 }}>{noticia.subtitulo}</p>
+                </div>
+              </div>
+
+              <div style={{ marginTop: '20px', paddingTop: '20px', borderTop: '1px solid #EDE8DE', display: 'flex', alignItems: 'center', gap: '8px' }}>
+                <span style={{ fontSize: '13px', color: '#C9A84C', fontFamily: 'Arial, sans-serif', fontWeight: '600', letterSpacing: '0.05em' }}>Leer análisis completo</span>
+                <span style={{ color: '#C9A84C' }}>→</span>
+              </div>
+            </div>
+          </Link>
+        ))}
       </div>
-      <div style={{ background: '#2d5a0e', padding: '48px 32px', textAlign: 'center', color: '#fff' }}>
-        <h2 style={{ fontSize: '26px', fontWeight: '700', margin: '0 0 12px' }}>{tr.cta.titulo}</h2>
-        <p style={{ fontSize: '16px', opacity: 0.9, margin: '0 0 24px' }}>{tr.cta.subtitulo}</p>
-        <Link href="/contactanos" style={{ background: '#fff', color: '#2d5a0e', padding: '14px 32px', borderRadius: '30px', fontWeight: '700', fontSize: '16px', textDecoration: 'none', display: 'inline-block' }}>
-          {tr.cta.boton}
-        </Link>
-      </div>
+
     </main>
   )
 }
