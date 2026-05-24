@@ -1,20 +1,45 @@
-const noticias = [
-  {
-    slug: 'la-pechina-extramurs-valencia',
-    fecha: 'Mayo 2026',
-    categoria: 'Análisis de barrio',
-    titulo: 'La Pechina (Extramurs): el barrio que se transforma y alcanza los 3.000€/m²',
-    subtitulo: 'Zonas verdes, nuevos parques y la zona naranja de aparcamiento están cambiando la cara de uno de los barrios más céntricos de Valencia.',
-    imagen: '🌳',
-    tiempo: '3 min lectura',
-  },
-  {
-    slug: 'nou-moles-lolivereta-valencia',
-    fecha: 'Mayo 2026',
-    categoria: 'Análisis de barrio',
-    titulo: "Nou Moles (L'Olivereta): el barrio humilde que Valencia redescubre",
-    subtitulo: "De barrio obrero olvidado a una de las zonas con mayor crecimiento de la ciudad. La gentrificación orgánica más interesante de Valencia.",
-    imagen: '🏘️',
-    tiempo: '5 min lectura',
-  },
-];
+'use client'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
+import { useState, useEffect } from 'react'
+import { t } from './data/traducciones'
+
+const Mapa = dynamic(() => import('./components/Mapa'), { ssr: false })
+
+export default function Home() {
+  const [idioma, setIdioma] = useState('es')
+
+  useEffect(() => {
+    const guardado = localStorage.getItem('idioma') || 'es'
+    setIdioma(guardado)
+    const handler = () => setIdioma(localStorage.getItem('idioma') || 'es')
+    window.addEventListener('idiomaChange', handler)
+    return () => window.removeEventListener('idiomaChange', handler)
+  }, [])
+
+  const tr = t[idioma]
+
+  return (
+    <main style={{ fontFamily: 'sans-serif', minHeight: '100vh', background: '#f8faf8' }}>
+      <div style={{ background: 'linear-gradient(135deg, #2d5a0e 0%, #4a8c1c 100%)', padding: '48px 32px', textAlign: 'center', color: '#fff' }}>
+        <h1 style={{ fontSize: '36px', fontWeight: '800', margin: '0 0 12px' }}>{tr.hero.titulo}</h1>
+        <p style={{ fontSize: '18px', opacity: 0.9, margin: '0 0 24px', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>{tr.hero.subtitulo}</p>
+        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div style={{ background: 'rgba(255,255,255,0.15)', padding: '10px 20px', borderRadius: '30px', fontSize: '14px' }}>{tr.hero.badge1}</div>
+          <div style={{ background: 'rgba(255,255,255,0.15)', padding: '10px 20px', borderRadius: '30px', fontSize: '14px' }}>{tr.hero.badge2}</div>
+          <div style={{ background: 'rgba(255,255,255,0.15)', padding: '10px 20px', borderRadius: '30px', fontSize: '14px' }}>{tr.hero.badge3}</div>
+        </div>
+      </div>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '32px 20px' }}>
+        <Mapa idioma={idioma} />
+      </div>
+      <div style={{ background: '#2d5a0e', padding: '48px 32px', textAlign: 'center', color: '#fff' }}>
+        <h2 style={{ fontSize: '26px', fontWeight: '700', margin: '0 0 12px' }}>{tr.cta.titulo}</h2>
+        <p style={{ fontSize: '16px', opacity: 0.9, margin: '0 0 24px' }}>{tr.cta.subtitulo}</p>
+        <Link href="/contactanos" style={{ background: '#fff', color: '#2d5a0e', padding: '14px 32px', borderRadius: '30px', fontWeight: '700', fontSize: '16px', textDecoration: 'none', display: 'inline-block' }}>
+          {tr.cta.boton}
+        </Link>
+      </div>
+    </main>
+  )
+}
