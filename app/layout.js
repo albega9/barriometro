@@ -2,7 +2,6 @@ import { Geist, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import Script from "next/script"
 import Navbar from "./components/Navbar"
-import { useState, useEffect } from "react"
 
 const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] })
 const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] })
@@ -24,26 +23,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
 
-  const [idioma, setIdioma] = useState('es')
-
-  useEffect(() => {
-    const guardado = localStorage.getItem('idioma') || 'es'
-    setIdioma(guardado)
-
-    const handler = () => {
-      setIdioma(localStorage.getItem('idioma') || 'es')
-    }
-
-    window.addEventListener('idiomaChange', handler)
-    return () => window.removeEventListener('idiomaChange', handler)
-  }, [])
-
   return (
-    <html lang={idioma}>
+    <html lang="es">
       <head>
         <meta name="google-site-verification" content="J9POSJEUXm0ahLhMIQ4Jxo46uHop1dN4vgHWVXy3wwI" />
 
-        <Script src="https://www.googletagmanager.com/gtag/js?id=G-W4RY0K6PH1" strategy="afterInteractive" />
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-W4RY0K6PH1"
+          strategy="afterInteractive"
+        />
 
         <Script id="google-analytics" strategy="afterInteractive">
           {`
@@ -57,6 +45,7 @@ export default function RootLayout({ children }) {
 
       <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <Navbar />
+
         {children}
 
         <footer style={{
@@ -111,6 +100,7 @@ export default function RootLayout({ children }) {
               </div>
             </div>
 
+            {/* FOOTER FIJO (SIN ERROR EN VERCEL) */}
             <a
               href="https://www.valenciacity.properties/privacidad"
               style={{
@@ -122,15 +112,7 @@ export default function RootLayout({ children }) {
                 fontFamily: 'Arial, sans-serif',
               }}
             >
-              {idioma === 'es'
-                ? 'Política de Privacidad'
-                : idioma === 'en'
-                ? 'Privacy Policy'
-                : idioma === 'fr'
-                ? 'Politique de confidentialité'
-                : idioma === 'de'
-                ? 'Datenschutz'
-                : 'Privacy Policy'}
+              Política de Privacidad · Privacy Policy · Politique de confidentialité · Datenschutz
             </a>
 
           </div>
