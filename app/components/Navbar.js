@@ -70,7 +70,7 @@ export default function Navbar() {
         {[
           { href: '/', label: tr.nav.inicio },
           { href: '/conocenos', label: tr.nav.conocenos },
-          { href: '/contactanos', label: tr.nav.contactanos },
+          { href: '/noticias', label: idioma === 'es' ? 'Noticias' : idioma === 'en' ? 'News' : idioma === 'fr' ? 'Actualités' : 'Nachrichten' },
         ].map(item => (
           <Link key={item.href} href={item.href} style={{
             fontSize: '13px',
