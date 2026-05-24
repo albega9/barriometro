@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import foto1 from './foto1.jpeg'
+import foto1 from './foto1.jpg'
 
 export const metadata = {
   title: 'Nou Moles Valencia: precios, inversión y revalorización en L\'Olivereta 2026',
