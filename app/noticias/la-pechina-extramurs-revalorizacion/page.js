@@ -309,7 +309,15 @@ export default function NoticiaPechina() {
               implantación de la zona naranja de aparcamiento han incrementado la
               calidad de vida y reforzado la percepción positiva de la zona.
             </p>
-
+            <p style={{ marginBottom: '24px' }}>
+              Puedes comparar este análisis con la evolución de otro barrio cercano como{' '}
+              <Link
+                href="/noticias/nou-moles-lolivereta-valencia"
+                style={{ color: '#C9A84C', textDecoration: 'underline' }}
+              >
+                Nou Moles (L'Olivereta)
+              </Link>, que también está experimentando un proceso de revalorización en Valencia.
+            </p>
             <h2
               style={{
                 fontSize: '24px',
