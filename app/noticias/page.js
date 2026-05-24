@@ -14,8 +14,7 @@ const noticias = [
     subtitulo: 'Zonas verdes, nuevos parques y la zona naranja de aparcamiento están cambiando la cara de uno de los barrios más céntricos de Valencia.',
     imagen: '🌿',
     tiempo: '3 min lectura',
-  }
-  {
+  
   slug: 'nou-moles-lolivereta-valencia',
   fecha: 'Mayo 2026',
   categoria: 'Análisis de barrio',
