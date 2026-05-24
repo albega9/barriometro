@@ -1,145 +1,45 @@
-import { Geist, Geist_Mono } from "next/font/google"
-import "./globals.css"
-import Script from "next/script"
-import Navbar from "./components/Navbar"
+'use client'
+import dynamic from 'next/dynamic'
+import Link from 'next/link'
+import { useState, useEffect } from 'react'
+import { t } from './data/traducciones'
 
-const geistSans = Geist({ variable: "--font-geist-sans", subsets: ["latin"] })
-const geistMono = Geist_Mono({ variable: "--font-geist-mono", subsets: ["latin"] })
+const Mapa = dynamic(() => import('./components/Mapa'), { ssr: false })
 
-export const metadata = {
-  title: "Barriometro Valencia — Barrios baratos con más revalorización",
-  description:
-    "Descubre qué zonas de Valencia están baratas y tienen más potencial de subida. Precio real de cierre, predicción a 2 años y estrategias de compra para cada distrito.",
-  keywords:
-    "comprar piso Valencia, barrios baratos Valencia, precio vivienda Valencia, invertir Valencia, distritos Valencia precio",
-  verification: {
-    google: "J9POSJEUXm0ahLhMIQ4Jxo46uHop1dN4vgHWVXy3wwI",
-  },
-  openGraph: {
-    title: "Barriometro Valencia",
-    description:
-      "Descubre qué zonas de Valencia están baratas antes de que suban de precio.",
-    url: "https://valenciacity.properties",
-    type: "website",
-  },
-}
+export default function Home() {
+  const [idioma, setIdioma] = useState('es')
 
-const privacyTexts = {
-  es: "Política de Privacidad",
-  en: "Privacy Policy",
-  fr: "Politique de confidentialité",
-  de: "Datenschutz",
-}
+  useEffect(() => {
+    const guardado = localStorage.getItem('idioma') || 'es'
+    setIdioma(guardado)
+    const handler = () => setIdioma(localStorage.getItem('idioma') || 'es')
+    window.addEventListener('idiomaChange', handler)
+    return () => window.removeEventListener('idiomaChange', handler)
+  }, [])
 
-export default function RootLayout({ children, params }) {
-
-  // idioma actual
-  const lang = params?.lang || "es"
+  const tr = t[idioma]
 
   return (
-    <html lang={lang}>
-      <head>
-        <meta
-          name="google-site-verification"
-          content="J9POSJEUXm0ahLhMIQ4Jxo46uHop1dN4vgHWVXy3wwI"
-        />
-
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-W4RY0K6PH1"
-          strategy="afterInteractive"
-        />
-
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-W4RY0K6PH1');
-          `}
-        </Script>
-      </head>
-
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <Navbar />
-        {children}
-      </body>
-
-      <footer
-        style={{
-          background: "#0B1F3A",
-          borderTop: "1px solid rgba(201,168,76,0.2)",
-          padding: "40px 48px",
-        }}
-      >
-        <div
-          style={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexWrap: "wrap",
-            gap: "20px",
-          }}
-        >
-          <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <div
-              style={{
-                width: "30px",
-                height: "30px",
-                background: "linear-gradient(135deg, #C9A84C, #E8C97A)",
-                borderRadius: "4px",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                fontSize: "15px",
-                fontWeight: "700",
-                color: "#0B1F3A",
-                fontFamily: "Georgia, serif",
-              }}
-            >
-              V
-            </div>
-
-            <div>
-              <div
-                style={{
-                  fontSize: "14px",
-                  fontWeight: "700",
-                  color: "#FFFFFF",
-                  fontFamily: "Georgia, serif",
-                }}
-              >
-                ValenciaCity Properties
-              </div>
-
-              <div
-                style={{
-                  fontSize: "11px",
-                  color: "rgba(255,255,255,0.4)",
-                  fontFamily: "Arial, sans-serif",
-                }}
-              >
-                © 2026
-              </div>
-            </div>
-          </div>
-
-          <a
-            href={`/${lang}/privacidad`}
-            style={{
-              color: "rgba(255,255,255,0.4)",
-              fontSize: "12px",
-              textDecoration: "none",
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              fontFamily: "Arial, sans-serif",
-            }}
-          >
-            {privacyTexts[lang] || privacyTexts.es}
-          </a>
+    <main style={{ fontFamily: 'sans-serif', minHeight: '100vh', background: '#f8faf8' }}>
+      <div style={{ background: 'linear-gradient(135deg, #2d5a0e 0%, #4a8c1c 100%)', padding: '48px 32px', textAlign: 'center', color: '#fff' }}>
+        <h1 style={{ fontSize: '36px', fontWeight: '800', margin: '0 0 12px' }}>{tr.hero.titulo}</h1>
+        <p style={{ fontSize: '18px', opacity: 0.9, margin: '0 0 24px', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>{tr.hero.subtitulo}</p>
+        <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
+          <div style={{ background: 'rgba(255,255,255,0.15)', padding: '10px 20px', borderRadius: '30px', fontSize: '14px' }}>{tr.hero.badge1}</div>
+          <div style={{ background: 'rgba(255,255,255,0.15)', padding: '10px 20px', borderRadius: '30px', fontSize: '14px' }}>{tr.hero.badge2}</div>
+          <div style={{ background: 'rgba(255,255,255,0.15)', padding: '10px 20px', borderRadius: '30px', fontSize: '14px' }}>{tr.hero.badge3}</div>
         </div>
-      </footer>
-    </html>
+      </div>
+      <div style={{ maxWidth: '1400px', margin: '0 auto', padding: '32px 20px' }}>
+        <Mapa idioma={idioma} />
+      </div>
+      <div style={{ background: '#2d5a0e', padding: '48px 32px', textAlign: 'center', color: '#fff' }}>
+        <h2 style={{ fontSize: '26px', fontWeight: '700', margin: '0 0 12px' }}>{tr.cta.titulo}</h2>
+        <p style={{ fontSize: '16px', opacity: 0.9, margin: '0 0 24px' }}>{tr.cta.subtitulo}</p>
+        <Link href="/contactanos" style={{ background: '#fff', color: '#2d5a0e', padding: '14px 32px', borderRadius: '30px', fontWeight: '700', fontSize: '16px', textDecoration: 'none', display: 'inline-block' }}>
+          {tr.cta.boton}
+        </Link>
+      </div>
+    </main>
   )
 }

@@ -61,13 +61,25 @@ export default function RootLayout({ children }) {
       </div>
     </div>
     <a href="https://www.valenciacity.properties/privacidad" style={{
-      color: 'rgba(255,255,255,0.4)',
-      fontSize: '12px',
-      textDecoration: 'none',
-      letterSpacing: '0.08em',
-      textTransform: 'uppercase',
-      fontFamily: 'Arial, sans-serif',
-    }}>Privacy Policy · Politique de confidentialité · Datenschutz · Política de Privacidad</a>
+  color: 'rgba(255,255,255,0.4)',
+  fontSize: '12px',
+  textDecoration: 'none',
+  letterSpacing: '0.08em',
+  textTransform: 'uppercase',
+  fontFamily: 'Arial, sans-serif',
+}}>
+{
+  idioma === 'es'
+    ? 'Política de Privacidad'
+    : idioma === 'en'
+    ? 'Privacy Policy'
+    : idioma === 'fr'
+    ? 'Politique de confidentialité'
+    : idioma === 'de'
+    ? 'Datenschutz'
+    : 'Privacy Policy'
+}
+</a>
   </div>
 </footer>
     </html>
