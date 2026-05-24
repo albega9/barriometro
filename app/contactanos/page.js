@@ -112,19 +112,36 @@ export default function Contactanos() {
           </div>
         )}
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginTop: '32px' }}>
-          <div style={{ background: '#fff', borderRadius: '14px', padding: '20px', border: '1px solid #e8f0e8', textAlign: 'center' }}>
-            <div style={{ fontSize: '24px', marginBottom: '8px' }}>📧</div>
-            <div style={{ fontSize: '12px', color: '#888', marginBottom: '4px' }}>{c.directo.email}</div>
-            <div style={{ fontSize: '13px', fontWeight: '600', color: '#2d5a0e' }}>todosloscod@gmail.com</div>
-          </div>
+       <div style={{ marginTop: '32px', background: '#0B1F3A', borderRadius: '16px', padding: '28px 32px', display: 'flex', alignItems: 'center', gap: '24px' }}>
+  <div style={{
+    width: '56px', height: '56px', flexShrink: 0,
+    background: 'linear-gradient(135deg, #C9A84C, #E8C97A)',
+    borderRadius: '50%',
+    display: 'flex', alignItems: 'center', justifyContent: 'center',
+    fontSize: '24px'
+  }}>👔</div>
+  <div>
+    <div style={{ fontSize: '16px', fontWeight: '700', color: '#FFFFFF', fontFamily: 'Georgia, serif', marginBottom: '6px' }}>
+      {idioma === 'es' ? 'Un asesor especialista te contactará' :
+       idioma === 'en' ? 'A specialist advisor will contact you' :
+       idioma === 'fr' ? 'Un conseiller spécialisé vous contactera' :
+       'Ein Fachberater wird Sie kontaktieren'}
+    </div>
+    <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.6)', fontFamily: 'Arial, sans-serif', lineHeight: '1.6' }}>
+      {idioma === 'es' ? 'Analizamos tu consulta y te asignamos el profesional con mayor experiencia en la zona que te interesa. Respuesta garantizada en menos de 24 horas.' :
+       idioma === 'en' ? 'We analyze your inquiry and assign you the professional with the most experience in your area of interest. Response guaranteed within 24 hours.' :
+       idioma === 'fr' ? 'Nous analysons votre demande et vous assignons le professionnel le plus expérimenté dans votre zone d\'intérêt. Réponse garantie en moins de 24 heures.' :
+       'Wir analysieren Ihre Anfrage und weisen Ihnen den erfahrensten Fachmann für Ihre Interessenregion zu. Antwort garantiert innerhalb von 24 Stunden.'}
+    </div>
+  </div>
+</div>
           <div style={{ background: '#fff', borderRadius: '14px', padding: '20px', border: '1px solid #e8f0e8', textAlign: 'center' }}>
             <div style={{ fontSize: '24px', marginBottom: '8px' }}>⏱️</div>
             <div style={{ fontSize: '12px', color: '#888', marginBottom: '4px' }}>{c.directo.tiempo}</div>
             <div style={{ fontSize: '13px', fontWeight: '600', color: '#2d5a0e' }}>{c.directo.tiempoVal}</div>
           </div>
         </div>
-      </div>
+      
     </main>
   )
 }
