@@ -255,7 +255,7 @@ export default function NoticiaPechina() {
           >
             <p style={{ marginBottom: '24px' }}>
               El mercado inmobiliario de <strong>La Pechina Valencia</strong>
-              está viviendo una de las transformaciones más interesantes de la
+               está viviendo una de las transformaciones más interesantes de la
               ciudad. Este barrio de Extramurs, tradicionalmente considerado una
               zona residencial tranquila, se ha convertido en un punto de interés
               para compradores e inversores que buscan una vivienda en Valencia
@@ -340,7 +340,15 @@ export default function NoticiaPechina() {
               próximos años, especialmente si continúa el ritmo actual de mejora
               urbana y llegada de nuevos residentes.
             </p>
-
+            <p style={{ marginBottom: '24px' }}>
+  Puedes comparar este análisis con la evolución de otro barrio cercano como{' '}
+  <a
+    href="https://www.valenciacity.properties/noticias/nou-moles-lolivereta-valencia"
+    style={{ color: '#C9A84C', textDecoration: 'underline' }}
+  >
+    Nou Moles (L'Olivereta)
+  </a>, que también está experimentando un proceso de revalorización en Valencia.
+</p>
             {/* DESTACADO */}
             <div
               style={{
