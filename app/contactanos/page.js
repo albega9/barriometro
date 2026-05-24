@@ -112,7 +112,7 @@ export default function Contactanos() {
           </div>
         )}
 
-       <div style={{ marginTop: '32px', background: '#0B1F3A', borderRadius: '16px', padding: '28px 32px', display: 'flex', alignItems: 'center', gap: '24px' }}>
+       <div style={{ marginTop: '32px', background: '#fff', borderRadius: '16px', padding: '28px 32px', display: 'flex', alignItems: 'center', gap: '24px' }}>
   <div style={{
     width: '56px', height: '56px', flexShrink: 0,
     background: 'linear-gradient(135deg, #C9A84C, #E8C97A)',
