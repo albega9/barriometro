@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
-import foto1 from './foto1.jpg'
+import foto1 from './foto1.png'
 
 export const metadata = {
   title: 'Comprar vivienda en La Pechina Valencia: precios, revalorización y análisis 2026',
