@@ -21,6 +21,20 @@ export const metadata = {
   }
 }
 
+const [idioma, setIdioma] = useState('es')
+
+useEffect(() => {
+  const guardado = localStorage.getItem('idioma') || 'es'
+  setIdioma(guardado)
+
+  const handler = () => {
+    setIdioma(localStorage.getItem('idioma') || 'es')
+  }
+
+  window.addEventListener('idiomaChange', handler)
+  return () => window.removeEventListener('idiomaChange', handler)
+}, [])
+
 export default function RootLayout({ children }) {
   return (
     <html lang="es">
@@ -60,14 +74,27 @@ export default function RootLayout({ children }) {
         <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.4)', fontFamily: 'Arial, sans-serif' }}>© 2026</div>
       </div>
     </div>
-    <a href="https://www.valenciacity.properties/privacidad" style={{
-      color: 'rgba(255,255,255,0.4)',
-      fontSize: '12px',
-      textDecoration: 'none',
-      letterSpacing: '0.08em',
-      textTransform: 'uppercase',
-      fontFamily: 'Arial, sans-serif',
-    }}>Privacy Policy · Politique de confidentialité · Datenschutz · Política de Privacidad</a>
+    <a
+  href="https://www.valenciacity.properties/privacidad"
+  style={{
+    color: 'rgba(255,255,255,0.4)',
+    fontSize: '12px',
+    textDecoration: 'none',
+    letterSpacing: '0.08em',
+    textTransform: 'uppercase',
+    fontFamily: 'Arial, sans-serif',
+  }}
+>
+  {idioma === 'es'
+    ? 'Política de Privacidad'
+    : idioma === 'en'
+    ? 'Privacy Policy'
+    : idioma === 'fr'
+    ? 'Politique de confidentialité'
+    : idioma === 'de'
+    ? 'Datenschutz'
+    : 'Privacy Policy'}
+</a>
   </div>
 </footer>
     </html>
