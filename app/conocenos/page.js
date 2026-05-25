@@ -86,7 +86,7 @@ export default function Conocenos() {
   return (
     <main style={{ fontFamily: 'sans-serif', minHeight: '100vh', background: '#f8faf8' }}>
       <div style={{ background: 'linear-gradient(160deg, #0B1F3A 0%, #152D52 60%, #1A3A6B 100%)', padding: '64px 32px', textAlign: 'center', color: '#fff' }}>
-        <h1 style={{ fontSize: '36px', fontWeight: '800', margin: '0 0 16px' }}>{c.hero.titulo}</h1>
+        <h1 style={{ fontSize: '36px', fontWeight: '800', margin: '0 0 16px', color: '#fff' }}>{c.hero.titulo}</h1>
         <p style={{ fontSize: '18px', opacity: 0.9, maxWidth: '600px', margin: '0 auto' }}>{c.hero.subtitulo}</p>
       </div>
 
