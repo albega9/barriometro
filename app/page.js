@@ -21,7 +21,7 @@ export default function Home() {
 
   return (
     <main style={{ fontFamily: 'sans-serif', minHeight: '100vh', background: '#f8faf8' }}>
-      <div style={{ background: 'linear-gradient(135deg, #2d5a0e 0%, #4a8c1c 100%)', padding: '48px 32px', textAlign: 'center', color: '#fff' }}>
+      <div style={{ background: 'linear-gradient(160deg, #0B1F3A 0%, #152D52 60%, #1A3A6B 100%)', padding: '48px 32px', textAlign: 'center', color: '#fff' }}>
         <h1 style={{ fontSize: '36px', fontWeight: '800', margin: '0 0 12px' }}>{tr.hero.titulo}</h1>
         <p style={{ fontSize: '18px', opacity: 0.9, margin: '0 0 24px', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>{tr.hero.subtitulo}</p>
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
