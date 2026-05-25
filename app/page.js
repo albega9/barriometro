@@ -23,7 +23,7 @@ export default function Home() {
     <main style={{ fontFamily: 'sans-serif', minHeight: '100vh', background: '#f8faf8' }}>
       <div style={{ background: 'linear-gradient(160deg, #0B1F3A 0%, #152D52 60%, #1A3A6B 100%)', padding: '48px 32px', textAlign: 'center', color: '#fff' }}>
         <h1 style={{ fontSize: '36px', fontWeight: '800', margin: '0 0 12px', color: '#fff' }}>{tr.hero.titulo}</h1>
-        <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.65)', fontFamily: 'Arial, sans-serif', lineHeight: '1.7', maxWidth: '520px'}}>{tr.hero.subtitulo}</p>
+        <p style={{ fontSize: '18px', opacity: 0.9, margin: '0 0 24px', maxWidth: '600px', marginLeft: 'auto', marginRight: 'auto' }}>{tr.hero.subtitulo}</p>
         <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
           <div style={{ background: 'rgba(255,255,255,0.15)', padding: '10px 20px', borderRadius: '30px', fontSize: '14px' }}>{tr.hero.badge1}</div>
           <div style={{ background: 'rgba(255,255,255,0.15)', padding: '10px 20px', borderRadius: '30px', fontSize: '14px' }}>{tr.hero.badge2}</div>
