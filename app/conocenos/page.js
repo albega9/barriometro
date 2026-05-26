@@ -1,72 +1,151 @@
 'use client'
+
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState, useEffect } from 'react'
-import { t } from '../data/traducciones'
+
+export const metadata = {
+  title:
+    'Asesor inmobiliario para comprar vivienda en Valencia | Valencia Home Advisors',
+  description:
+    'Especialistas en ayudar a compradores e inversores a encontrar vivienda en Valencia. Negociación, búsqueda, reforma y gestión integral.',
+  keywords: [
+    'comprar piso Valencia',
+    'asesor inmobiliario Valencia',
+    'buyer agent Valencia',
+    'invertir en Valencia',
+    'comprar vivienda Valencia',
+    'property finder Valencia',
+  ],
+  alternates: {
+    canonical: 'https://tuweb.com/conocenos',
+    languages: {
+      es: 'https://tuweb.com/es/conocenos',
+      en: 'https://tuweb.com/en/about',
+      fr: 'https://tuweb.com/fr/a-propos',
+      de: 'https://tuweb.com/de/uber-uns',
+    },
+  },
+  openGraph: {
+    title: 'Asesor inmobiliario en Valencia',
+    description:
+      'Ayudamos a compradores e inversores a encontrar propiedades en Valencia.',
+    url: 'https://tuweb.com/conocenos',
+    siteName: 'Valencia Home Advisors',
+    images: [
+      {
+        url: '/og-valencia.jpg',
+        width: 1200,
+        height: 630,
+      },
+    ],
+    locale: 'es_ES',
+    type: 'website',
+  },
+}
 
 const contenido = {
   es: {
-    hero: { titulo: 'Somos tu equipo en Valencia', subtitulo: 'Especialistas en encontrar el lugar perfecto para vivir o invertir en Valencia. Te acompañamos en cada paso.' },
-    quienes: { titulo: '¿Quiénes somos?', texto1: 'Somos un equipo especializado en el mercado inmobiliario de Valencia. Combinamos tecnología, datos reales del mercado y conocimiento profundo de cada distrito para ayudarte a tomar la mejor decisión de compra de tu vida.', texto2: 'No somos una agencia inmobiliaria tradicional. Somos tu asesor de confianza — trabajamos exclusivamente para el comprador, sin conflicto de intereses, buscando siempre el mejor precio y la mejor zona para ti.' },
-    servicios: 'Lo que hacemos por ti',
+    hero: {
+      titulo: 'Asesor inmobiliario para comprar vivienda en Valencia',
+      subtitulo:
+        'Especialistas en ayudar a compradores e inversores a encontrar propiedades en Valencia al mejor precio.',
+    },
+
+    quienes: {
+      titulo: '¿Quiénes somos?',
+      texto1:
+        'Somos un equipo especializado en el mercado inmobiliario de Valencia. Combinamos tecnología, datos reales del mercado y conocimiento profundo de cada distrito para ayudarte a tomar la mejor decisión de compra.',
+      texto2:
+        'No somos una agencia inmobiliaria tradicional. Trabajamos exclusivamente para el comprador, sin conflicto de intereses, buscando siempre el mejor precio y la mejor zona para ti.',
+    },
+
+    servicios: 'Qué hacemos por ti',
+
     porque: '¿Por qué elegirnos?',
-    cta: { titulo: '¿Empezamos?', subtitulo: 'Cuéntanos qué buscas y te respondemos en menos de 24 horas.', boton: 'Contáctanos →' },
+
+    local: {
+      titulo: 'Expertos en el mercado inmobiliario de Valencia',
+      texto:
+        'Trabajamos en zonas como Ruzafa, El Carmen, Pla del Remei, Gran Vía, Cabanyal y Patacona, ayudando tanto a compradores nacionales como internacionales.',
+    },
+
+    faq: {
+      titulo: 'Preguntas frecuentes',
+      items: [
+        {
+          q: '¿Trabajáis solo para compradores?',
+          a: 'Sí. Defendemos exclusivamente los intereses del comprador.',
+        },
+        {
+          q: '¿Ayudáis a inversores extranjeros?',
+          a: 'Sí. Trabajamos con clientes internacionales que desean invertir en Valencia.',
+        },
+        {
+          q: '¿Gestionáis también reformas?',
+          a: 'Sí. Coordinamos arquitectos, constructores y todo el proceso de reforma.',
+        },
+      ],
+    },
+
+    cta: {
+      titulo: 'Empieza a buscar tu vivienda en Valencia',
+      subtitulo:
+        'Cuéntanos qué buscas y te responderemos en menos de 24 horas.',
+      boton: 'Contáctanos →',
+    },
+
     items: [
-      { emoji: '🗺️', titulo: 'Elección de zona', desc: 'Analizamos tu presupuesto, estilo de vida y objetivos para recomendarte el distrito que más te conviene.' },
-      { emoji: '💬', titulo: 'Negociación', desc: 'Negociamos en tu nombre. Conocemos los precios reales de cierre de cada zona.' },
-      { emoji: '📋', titulo: 'Gestión de la compra', desc: 'Te acompañamos en toda la burocracia: nota simple, escrituras, notaría, impuestos.' },
-      { emoji: '🔨', titulo: 'Reforma', desc: 'Coordinamos todo con nuestros arquitectos y constructores de confianza. Presupuesto cerrado desde el primer día.' },
-      { emoji: '🔑', titulo: 'Llave en mano', desc: 'Desde que decides comprar hasta que tienes las llaves. Te gestionamos absolutamente todo.' },
-      { emoji: '📈', titulo: 'Asesoramiento de inversión', desc: 'Te identificamos las oportunidades con mayor potencial de revalorización antes de que el mercado las descubra.' },
+      {
+        emoji: '🗺️',
+        titulo: 'Elección de zona',
+        desc:
+          'Analizamos tu presupuesto, estilo de vida y objetivos para recomendarte el distrito ideal.',
+      },
+
+      {
+        emoji: '💬',
+        titulo: 'Negociación',
+        desc:
+          'Negociamos en tu nombre. Conocemos los precios reales de cierre de cada zona.',
+      },
+
+      {
+        emoji: '📋',
+        titulo: 'Gestión de la compra',
+        desc:
+          'Te acompañamos en toda la burocracia: nota simple, escrituras, notaría e impuestos.',
+      },
+
+      {
+        emoji: '🔨',
+        titulo: 'Reforma',
+        desc:
+          'Coordinamos todo con arquitectos y constructores de confianza.',
+      },
+
+      {
+        emoji: '🔑',
+        titulo: 'Llave en mano',
+        desc:
+          'Desde que decides comprar hasta que recibes las llaves.',
+      },
+
+      {
+        emoji: '📈',
+        titulo: 'Asesoramiento de inversión',
+        desc:
+          'Identificamos oportunidades con alto potencial de revalorización.',
+      },
     ],
-    razones: ['✅ Trabajamos solo para el comprador — sin comisiones del vendedor', '✅ Conocemos el precio real de cierre de cada distrito', '✅ Más de 100 operaciones acompañadas en Valencia', '✅ Proceso 100% transparente', '✅ Servicio integral desde la búsqueda hasta la reforma'],
-  },
-  en: {
-    hero: { titulo: 'We are your team in Valencia', subtitulo: 'Specialists in finding the perfect place to live or invest in Valencia. We guide you every step of the way.' },
-    quienes: { titulo: 'Who are we?', texto1: 'We are a team specialized in the Valencia real estate market. We combine technology, real market data and deep knowledge of each district to help you make the best purchase decision of your life.', texto2: 'We are not a traditional real estate agency. We are your trusted advisor — we work exclusively for the buyer, with no conflict of interest, always seeking the best price and the best area for you.' },
-    servicios: 'What we do for you',
-    porque: 'Why choose us?',
-    cta: { titulo: 'Shall we start?', subtitulo: 'Tell us what you are looking for and we will get back to you within 24 hours.', boton: 'Contact us →' },
-    items: [
-      { emoji: '🗺️', titulo: 'Area selection', desc: 'We analyze your budget, lifestyle and goals to recommend the best district for you.' },
-      { emoji: '💬', titulo: 'Negotiation', desc: 'We negotiate on your behalf. We know the real closing prices in each area.' },
-      { emoji: '📋', titulo: 'Purchase management', desc: 'We guide you through all the paperwork: title search, deeds, notary, taxes.' },
-      { emoji: '🔨', titulo: 'Renovation', desc: 'We coordinate everything with our trusted architects and builders. Fixed budget from day one.' },
-      { emoji: '🔑', titulo: 'Turnkey', desc: 'From the moment you decide to buy until you have the keys. We manage absolutely everything.' },
-      { emoji: '📈', titulo: 'Investment advice', desc: 'We identify opportunities with the highest appreciation potential before the market discovers them.' },
+
+    razones: [
+      '✅ Trabajamos exclusivamente para compradores',
+      '✅ Conocemos el precio real de cierre de cada distrito',
+      '✅ Más de 100 operaciones acompañadas en Valencia',
+      '✅ Proceso 100% transparente',
+      '✅ Servicio integral de búsqueda, compra y reforma',
     ],
-    razones: ['✅ We work only for the buyer — no seller commissions', '✅ We know the real closing price of each district', '✅ Over 100 transactions accompanied in Valencia', '✅ 100% transparent process', '✅ Full service from search to renovation'],
-  },
-  fr: {
-    hero: { titulo: 'Nous sommes votre équipe à Valence', subtitulo: 'Spécialistes pour trouver le lieu parfait pour vivre ou investir à Valence. Nous vous accompagnons à chaque étape.' },
-    quienes: { titulo: 'Qui sommes-nous?', texto1: 'Nous sommes une équipe spécialisée dans le marché immobilier de Valence. Nous combinons technologie, données réelles du marché et connaissance approfondie de chaque quartier.', texto2: 'Nous ne sommes pas une agence immobilière traditionnelle. Nous sommes votre conseiller de confiance — nous travaillons exclusivement pour l\'acheteur, sans conflit d\'intérêts.' },
-    servicios: 'Ce que nous faisons pour vous',
-    porque: 'Pourquoi nous choisir?',
-    cta: { titulo: 'On commence?', subtitulo: 'Dites-nous ce que vous cherchez et nous vous répondons en moins de 24 heures.', boton: 'Nous contacter →' },
-    items: [
-      { emoji: '🗺️', titulo: 'Choix du quartier', desc: 'Nous analysons votre budget, style de vie et objectifs pour vous recommander le meilleur quartier.' },
-      { emoji: '💬', titulo: 'Négociation', desc: 'Nous négocions en votre nom. Nous connaissons les prix réels de clôture de chaque zone.' },
-      { emoji: '📋', titulo: 'Gestion de l\'achat', desc: 'Nous vous accompagnons dans toute la bureaucratie: acte, notaire, impôts.' },
-      { emoji: '🔨', titulo: 'Rénovation', desc: 'Nous coordonnons tout avec nos architectes et constructeurs de confiance.' },
-      { emoji: '🔑', titulo: 'Clé en main', desc: 'De la décision d\'achat jusqu\'aux clés. Nous gérons absolument tout.' },
-      { emoji: '📈', titulo: 'Conseil en investissement', desc: 'Nous identifions les opportunités à plus fort potentiel de valorisation.' },
-    ],
-    razones: ['✅ Nous travaillons uniquement pour l\'acheteur', '✅ Nous connaissons le prix réel de clôture de chaque quartier', '✅ Plus de 100 transactions accompagnées à Valence', '✅ Processus 100% transparent', '✅ Service complet de la recherche à la rénovation'],
-  },
-  de: {
-    hero: { titulo: 'Wir sind Ihr Team in Valencia', subtitulo: 'Spezialisten für die Suche nach dem perfekten Ort zum Leben oder Investieren in Valencia.' },
-    quienes: { titulo: 'Wer sind wir?', texto1: 'Wir sind ein Team, das auf den Immobilienmarkt in Valencia spezialisiert ist. Wir kombinieren Technologie, echte Marktdaten und tiefes Wissen über jeden Stadtteil.', texto2: 'Wir sind keine traditionelle Immobilienagentur. Wir sind Ihr vertrauenswürdiger Berater — wir arbeiten ausschließlich für den Käufer, ohne Interessenkonflikt.' },
-    servicios: 'Was wir für Sie tun',
-    porque: 'Warum uns wählen?',
-    cta: { titulo: 'Fangen wir an?', subtitulo: 'Sagen Sie uns, was Sie suchen, und wir melden uns innerhalb von 24 Stunden.', boton: 'Kontaktieren Sie uns →' },
-    items: [
-      { emoji: '🗺️', titulo: 'Stadtteilauswahl', desc: 'Wir analysieren Ihr Budget, Ihren Lebensstil und Ihre Ziele, um den besten Stadtteil zu empfehlen.' },
-      { emoji: '💬', titulo: 'Verhandlung', desc: 'Wir verhandeln in Ihrem Namen. Wir kennen die realen Abschlusspreise in jeder Zone.' },
-      { emoji: '📋', titulo: 'Kaufabwicklung', desc: 'Wir begleiten Sie durch den gesamten Papierkram: Grundbuch, Notar, Steuern.' },
-      { emoji: '🔨', titulo: 'Renovierung', desc: 'Wir koordinieren alles mit unseren vertrauenswürdigen Architekten und Bauunternehmern.' },
-      { emoji: '🔑', titulo: 'Schlüsselfertig', desc: 'Von der Kaufentscheidung bis zur Schlüsselübergabe. Wir regeln absolut alles.' },
-      { emoji: '📈', titulo: 'Anlageberatung', desc: 'Wir identifizieren Chancen mit dem höchsten Wertsteigerungspotenzial.' },
-    ],
-    razones: ['✅ Wir arbeiten nur für den Käufer — keine Verkäuferprovisionen', '✅ Wir kennen den realen Abschlusspreis jedes Stadtteils', '✅ Über 100 begleitete Transaktionen in Valencia', '✅ 100% transparenter Prozess', '✅ Vollservice von der Suche bis zur Renovierung'],
   },
 }
 
@@ -75,56 +154,457 @@ export default function Conocenos() {
 
   useEffect(() => {
     const guardado = localStorage.getItem('idioma') || 'es'
+
     setIdioma(guardado)
-    const handler = () => setIdioma(localStorage.getItem('idioma') || 'es')
+
+    const handler = () =>
+      setIdioma(localStorage.getItem('idioma') || 'es')
+
     window.addEventListener('idiomaChange', handler)
-    return () => window.removeEventListener('idiomaChange', handler)
+
+    return () =>
+      window.removeEventListener('idiomaChange', handler)
   }, [])
 
   const c = contenido[idioma]
 
   return (
-    <main style={{ fontFamily: 'sans-serif', minHeight: '100vh', background: '#f8faf8' }}>
-      <div style={{ background: 'linear-gradient(160deg, #0B1F3A 0%, #152D52 60%, #1A3A6B 100%)', padding: '64px 32px', textAlign: 'center', color: '#fff' }}>
-        <h1 style={{ fontSize: '36px', fontWeight: '800', margin: '0 0 16px', color: '#fff' }}>{c.hero.titulo}</h1>
-        <p style={{ fontSize: '18px', opacity: 0.9, maxWidth: '600px', margin: '0 auto' }}>{c.hero.subtitulo}</p>
-      </div>
+    <>
+      {/* Schema.org SEO */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'RealEstateAgent',
+            name: 'Valencia Home Advisors',
+            areaServed: 'Valencia',
+            url: 'https://tuweb.com',
+            description:
+              'Asesoramiento inmobiliario para compradores en Valencia.',
+          }),
+        }}
+      />
 
-      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '64px 24px' }}>
-        <div style={{ textAlign: 'center', marginBottom: '48px' }}>
-          <h2 style={{ fontSize: '28px', fontWeight: '700', color: '#2d5a0e', margin: '0 0 16px' }}>{c.quienes.titulo}</h2>
-          <p style={{ fontSize: '16px', color: '#555', lineHeight: '1.8', maxWidth: '700px', margin: '0 auto' }}>{c.quienes.texto1}</p>
-          <p style={{ fontSize: '16px', color: '#555', lineHeight: '1.8', maxWidth: '700px', margin: '16px auto 0' }}>{c.quienes.texto2}</p>
-        </div>
+      <main
+        style={{
+          fontFamily: 'sans-serif',
+          minHeight: '100vh',
+          background: '#f8faf8',
+        }}
+      >
+        {/* HERO */}
+        <header
+          style={{
+            background:
+              'linear-gradient(160deg, #0B1F3A 0%, #152D52 60%, #1A3A6B 100%)',
+            padding: '80px 32px',
+            textAlign: 'center',
+            color: '#fff',
+          }}
+        >
+          <div
+            style={{
+              maxWidth: '1100px',
+              margin: '0 auto',
+            }}
+          >
+            <Image
+              src="/buyer-agent-valencia.webp"
+              alt="Asesor inmobiliario en Valencia"
+              width={1200}
+              height={700}
+              priority
+              style={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: '20px',
+                marginBottom: '40px',
+              }}
+            />
 
-        <h2 style={{ fontSize: '26px', fontWeight: '700', color: '#2d5a0e', textAlign: 'center', marginBottom: '32px' }}>{c.servicios}</h2>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(260px, 1fr))', gap: '20px', marginBottom: '64px' }}>
-          {c.items.map((s, i) => (
-            <div key={i} style={{ background: '#fff', borderRadius: '16px', padding: '24px', border: '1px solid #e8f0e8', boxShadow: '0 2px 8px rgba(0,0,0,0.04)' }}>
-              <div style={{ fontSize: '32px', marginBottom: '12px' }}>{s.emoji}</div>
-              <div style={{ fontSize: '16px', fontWeight: '700', color: '#2d5a0e', marginBottom: '8px' }}>{s.titulo}</div>
-              <div style={{ fontSize: '14px', color: '#666', lineHeight: '1.6' }}>{s.desc}</div>
-            </div>
-          ))}
-        </div>
+            <h1
+              style={{
+                fontSize: '42px',
+                fontWeight: '800',
+                marginBottom: '20px',
+                lineHeight: '1.2',
+              }}
+            >
+              {c.hero.titulo}
+            </h1>
 
-        <div style={{ background: '#f0f7ec', borderRadius: '20px', padding: '40px', marginBottom: '48px' }}>
-          <h2 style={{ fontSize: '24px', fontWeight: '700', color: '#2d5a0e', marginBottom: '24px', textAlign: 'center' }}>{c.porque}</h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            {c.razones.map((item, i) => (
-              <div key={i} style={{ fontSize: '15px', color: '#444', lineHeight: '1.6' }}>{item}</div>
-            ))}
+            <p
+              style={{
+                fontSize: '20px',
+                opacity: 0.92,
+                maxWidth: '760px',
+                margin: '0 auto',
+                lineHeight: '1.7',
+              }}
+            >
+              {c.hero.subtitulo}
+            </p>
           </div>
-        </div>
+        </header>
 
-        <div style={{ textAlign: 'center' }}>
-          <h3 style={{ fontSize: '22px', fontWeight: '700', color: '#2d5a0e', marginBottom: '12px' }}>{c.cta.titulo}</h3>
-          <p style={{ fontSize: '15px', color: '#666', marginBottom: '24px' }}>{c.cta.subtitulo}</p>
-          <Link href="/contactanos" style={{ background: '#2d5a0e', color: '#fff', padding: '14px 36px', borderRadius: '30px', fontWeight: '700', fontSize: '16px', textDecoration: 'none', display: 'inline-block' }}>
-            {c.cta.boton}
-          </Link>
+        <div
+          style={{
+            maxWidth: '1100px',
+            margin: '0 auto',
+            padding: '72px 24px',
+          }}
+        >
+          {/* QUIENES SOMOS */}
+          <section
+            style={{
+              marginBottom: '80px',
+              textAlign: 'center',
+            }}
+          >
+            <h2
+              style={{
+                fontSize: '32px',
+                fontWeight: '700',
+                color: '#2d5a0e',
+                marginBottom: '24px',
+              }}
+            >
+              {c.quienes.titulo}
+            </h2>
+
+            <p
+              style={{
+                fontSize: '17px',
+                color: '#555',
+                lineHeight: '1.9',
+                maxWidth: '800px',
+                margin: '0 auto 20px',
+              }}
+            >
+              {c.quienes.texto1}
+            </p>
+
+            <p
+              style={{
+                fontSize: '17px',
+                color: '#555',
+                lineHeight: '1.9',
+                maxWidth: '800px',
+                margin: '0 auto',
+              }}
+            >
+              {c.quienes.texto2}
+            </p>
+          </section>
+
+          {/* SEO LOCAL */}
+          <section
+            style={{
+              background: '#fff',
+              padding: '40px',
+              borderRadius: '20px',
+              marginBottom: '80px',
+              boxShadow: '0 4px 18px rgba(0,0,0,0.05)',
+            }}
+          >
+            <h2
+              style={{
+                fontSize: '28px',
+                fontWeight: '700',
+                color: '#2d5a0e',
+                marginBottom: '20px',
+              }}
+            >
+              {c.local.titulo}
+            </h2>
+
+            <p
+              style={{
+                color: '#555',
+                lineHeight: '1.9',
+                fontSize: '16px',
+              }}
+            >
+              {c.local.texto}
+            </p>
+          </section>
+
+          {/* SERVICIOS */}
+          <section style={{ marginBottom: '80px' }}>
+            <h2
+              style={{
+                fontSize: '32px',
+                fontWeight: '700',
+                color: '#2d5a0e',
+                textAlign: 'center',
+                marginBottom: '40px',
+              }}
+            >
+              {c.servicios}
+            </h2>
+
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns:
+                  'repeat(auto-fill, minmax(280px, 1fr))',
+                gap: '24px',
+              }}
+            >
+              {c.items.map((s, i) => (
+                <article
+                  key={i}
+                  style={{
+                    background: '#fff',
+                    borderRadius: '18px',
+                    padding: '28px',
+                    border: '1px solid #e8f0e8',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.05)',
+                  }}
+                >
+                  <div
+                    style={{
+                      fontSize: '38px',
+                      marginBottom: '14px',
+                    }}
+                  >
+                    {s.emoji}
+                  </div>
+
+                  <h3
+                    style={{
+                      fontSize: '18px',
+                      fontWeight: '700',
+                      color: '#2d5a0e',
+                      marginBottom: '12px',
+                    }}
+                  >
+                    {s.titulo}
+                  </h3>
+
+                  <p
+                    style={{
+                      fontSize: '15px',
+                      color: '#666',
+                      lineHeight: '1.7',
+                    }}
+                  >
+                    {s.desc}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          {/* RAZONES */}
+          <section
+            style={{
+              background: '#f0f7ec',
+              borderRadius: '20px',
+              padding: '48px',
+              marginBottom: '80px',
+            }}
+          >
+            <h2
+              style={{
+                fontSize: '30px',
+                fontWeight: '700',
+                color: '#2d5a0e',
+                marginBottom: '32px',
+                textAlign: 'center',
+              }}
+            >
+              {c.porque}
+            </h2>
+
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '18px',
+              }}
+            >
+              {c.razones.map((item, i) => (
+                <div
+                  key={i}
+                  style={{
+                    fontSize: '16px',
+                    color: '#444',
+                    lineHeight: '1.7',
+                  }}
+                >
+                  {item}
+                </div>
+              ))}
+            </div>
+          </section>
+
+          {/* FAQ SEO */}
+          <section
+            style={{
+              marginBottom: '80px',
+            }}
+          >
+            <h2
+              style={{
+                fontSize: '30px',
+                fontWeight: '700',
+                color: '#2d5a0e',
+                marginBottom: '32px',
+                textAlign: 'center',
+              }}
+            >
+              {c.faq.titulo}
+            </h2>
+
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '24px',
+              }}
+            >
+              {c.faq.items.map((faq, i) => (
+                <article
+                  key={i}
+                  style={{
+                    background: '#fff',
+                    padding: '28px',
+                    borderRadius: '16px',
+                    boxShadow: '0 4px 10px rgba(0,0,0,0.04)',
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontSize: '18px',
+                      color: '#2d5a0e',
+                      marginBottom: '12px',
+                    }}
+                  >
+                    {faq.q}
+                  </h3>
+
+                  <p
+                    style={{
+                      color: '#666',
+                      lineHeight: '1.8',
+                    }}
+                  >
+                    {faq.a}
+                  </p>
+                </article>
+              ))}
+            </div>
+          </section>
+
+          {/* ENLACES INTERNOS */}
+          <section
+            style={{
+              marginBottom: '80px',
+            }}
+          >
+            <h2
+              style={{
+                fontSize: '28px',
+                color: '#2d5a0e',
+                marginBottom: '24px',
+              }}
+            >
+              Guías inmobiliarias en Valencia
+            </h2>
+
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '14px',
+              }}
+            >
+              <Link
+                href="/mejores-zonas-valencia"
+                style={{
+                  color: '#1A3A6B',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                }}
+              >
+                Mejores zonas para vivir en Valencia
+              </Link>
+
+              <Link
+                href="/invertir-en-cabanyal"
+                style={{
+                  color: '#1A3A6B',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                }}
+              >
+                Invertir en Cabanyal en 2026
+              </Link>
+
+              <Link
+                href="/comprar-piso-en-ruzafa"
+                style={{
+                  color: '#1A3A6B',
+                  fontWeight: '600',
+                  textDecoration: 'none',
+                }}
+              >
+                Comprar piso en Ruzafa
+              </Link>
+            </div>
+          </section>
+
+          {/* CTA */}
+          <section
+            style={{
+              textAlign: 'center',
+              background: '#fff',
+              borderRadius: '24px',
+              padding: '56px 32px',
+              boxShadow: '0 4px 18px rgba(0,0,0,0.05)',
+            }}
+          >
+            <h2
+              style={{
+                fontSize: '32px',
+                fontWeight: '700',
+                color: '#2d5a0e',
+                marginBottom: '16px',
+              }}
+            >
+              {c.cta.titulo}
+            </h2>
+
+            <p
+              style={{
+                fontSize: '16px',
+                color: '#666',
+                marginBottom: '32px',
+              }}
+            >
+              {c.cta.subtitulo}
+            </p>
+
+            <Link
+              href="/contactanos"
+              style={{
+                background: '#2d5a0e',
+                color: '#fff',
+                padding: '16px 42px',
+                borderRadius: '40px',
+                fontWeight: '700',
+                fontSize: '16px',
+                textDecoration: 'none',
+                display: 'inline-block',
+              }}
+            >
+              {c.cta.boton}
+            </Link>
+          </section>
         </div>
-      </div>
-    </main>
+      </main>
+    </>
   )
 }
