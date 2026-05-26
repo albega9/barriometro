@@ -230,7 +230,7 @@ export default function Contactanos() {
     <main style={{ fontFamily: 'Georgia, serif', minHeight: '100vh', background: '#F8F5EF' }}>
  
       {/* HERO */}
-      <div style={{ background: 'linear-gradient(160deg, #0B1F3A 0%, #152D52 60%, #1A3A6B 100%)', padding: '80px 48px 60px', position: 'relative', overflow: 'hidden' }}>
+      <div style={{ background: 'linear-gradient(160deg, #0B1F3A 0%, #152D52 60%, #1A3A6B 100%)', padding: 'clamp(40px, 8vw, 80px) clamp(16px, 5vw, 48px) clamp(32px, 6vw, 60px)', position: 'relative', overflow: 'hidden' }}>
         <div style={{ position: 'absolute', top: 0, left: 0, right: 0, height: '2px', background: 'linear-gradient(90deg, transparent, #C9A84C, transparent)' }} />
         <div style={{ position: 'absolute', bottom: '-80px', right: '-80px', width: '300px', height: '300px', borderRadius: '50%', background: 'radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%)' }} />
         <div style={{ maxWidth: '800px', margin: '0 auto', textAlign: 'center', position: 'relative' }}>
@@ -239,14 +239,14 @@ export default function Contactanos() {
             <span style={{ fontSize: '11px', letterSpacing: '0.2em', textTransform: 'uppercase', color: '#C9A84C', fontFamily: 'Arial, sans-serif' }}>{c.hero.eyebrow}</span>
             <div style={{ width: '32px', height: '1px', background: '#C9A84C' }} />
           </div>
-          <h1 style={{ fontSize: '44px', fontWeight: '700', color: '#FFFFFF', marginBottom: '20px', fontFamily: 'Georgia, serif', lineHeight: '1.2' }}>{c.hero.titulo}</h1>
+          <h1 style={{ fontSize: 'clamp(28px, 5vw, 44px)', fontWeight: '700', color: '#FFFFFF', marginBottom: '20px', fontFamily: 'Georgia, serif', lineHeight: '1.2' }}>{c.hero.titulo}</h1>
           <p style={{ fontSize: '17px', color: 'rgba(255,255,255,0.65)', fontFamily: 'Arial, sans-serif', lineHeight: '1.7', maxWidth: '620px', margin: '0 auto' }}>{c.hero.subtitulo}</p>
         </div>
       </div>
  
       {/* PERFILES */}
       <div style={{ maxWidth: '900px', margin: '0 auto', padding: '64px 24px 0' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '20px', marginBottom: '64px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '20px', marginBottom: '64px' }}>
           {c.perfiles.map((p, i) => (
             <div key={i} style={{ background: '#fff', borderRadius: '16px', padding: '28px', border: '1px solid #D4C9B0', boxShadow: '0 2px 12px rgba(11,31,58,0.06)' }}>
               <div style={{ fontSize: '32px', marginBottom: '14px' }}>{p.icono}</div>
@@ -269,7 +269,7 @@ export default function Contactanos() {
             <h2 style={{ fontSize: '26px', fontWeight: '700', color: '#0B1F3A', marginBottom: '8px', fontFamily: 'Georgia, serif' }}>{c.form.titulo}</h2>
             <p style={{ fontSize: '15px', color: '#8A9BB0', marginBottom: '36px', fontFamily: 'Arial, sans-serif' }}>{c.form.subtitulo}</p>
  
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '20px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))', gap: '20px', marginBottom: '20px' }}>
               <div>
                 <label style={labelStyle}>{c.form.nombre}</label>
                 <input type="text" placeholder={idioma === 'es' ? 'Tu nombre completo' : idioma === 'en' ? 'Your full name' : idioma === 'fr' ? 'Votre nom complet' : 'Ihr vollständiger Name'} value={form.nombre} onChange={e => setForm({ ...form, nombre: e.target.value })} style={inputStyle} />
@@ -316,7 +316,7 @@ export default function Contactanos() {
         )}
  
         {/* GARANTÍAS */}
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px', marginBottom: '64px' }}>
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(160px, 1fr))', gap: '16px', marginBottom: '64px' }}>
           {c.garantias.map((g, i) => (
             <div key={i} style={{ background: '#0B1F3A', borderRadius: '12px', padding: '24px 20px', textAlign: 'center' }}>
               <div style={{ fontSize: '28px', marginBottom: '10px' }}>{g.icono}</div>
