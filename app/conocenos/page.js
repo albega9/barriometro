@@ -94,17 +94,17 @@ const contenido = {
   fr: {
     meta: {
       titulo: 'Qui Sommes-Nous | Conseillers Immobiliers à Valence pour Acheteurs',
-      descripcion: 'Nous sommes votre conseiller immobilier de confiance à Valence. Nous travaillons exclusivement pour l\'acheteur. +100 transactions accompagnées.',
+      descripcion: "Nous sommes votre conseiller immobilier de confiance à Valence. Nous travaillons exclusivement pour l'acheteur. +100 transactions accompagnées.",
     },
     hero: {
       eyebrow: 'Votre conseiller immobilier à Valence',
       titulo: 'Nous achetons mieux quand un expert est de votre côté',
-      subtitulo: 'Spécialistes pour accompagner les acheteurs et investisseurs sur le marché immobilier de Valence. Sans conflit d\'intérêts, toujours dans votre équipe.',
+      subtitulo: "Spécialistes pour accompagner les acheteurs et investisseurs sur le marché immobilier de Valence. Sans conflit d'intérêts, toujours dans votre équipe.",
     },
     quienes: {
       titulo: 'Qui sommes-nous?',
       texto1: 'Nous sommes une équipe spécialisée dans le marché immobilier de Valence. Nous combinons technologie, données réelles du marché et connaissance approfondie de chaque quartier.',
-      texto2: 'Nous ne sommes pas une agence immobilière traditionnelle. Nous sommes votre conseiller de confiance — nous travaillons exclusivement pour l\'acheteur, sans conflit d\'intérêts.',
+      texto2: "Nous ne sommes pas une agence immobilière traditionnelle. Nous sommes votre conseiller de confiance — nous travaillons exclusivement pour l'acheteur, sans conflit d'intérêts.",
     },
     stats: [
       { valor: '+100', etiqueta: 'transactions accompagnées' },
@@ -122,13 +122,13 @@ const contenido = {
     items: [
       { emoji: '🗺️', titulo: 'Choix du quartier', desc: 'Nous analysons votre budget, style de vie et objectifs pour vous recommander le meilleur quartier à Valence.' },
       { emoji: '💬', titulo: 'Négociation', desc: 'Nous négocions en votre nom. Nous connaissons les prix réels de clôture de chaque zone.' },
-      { emoji: '📋', titulo: 'Gestion de l\'achat', desc: 'Nous vous accompagnons dans toute la bureaucratie: acte, notaire, impôts et plus.' },
+      { emoji: '📋', titulo: "Gestion de l'achat", desc: 'Nous vous accompagnons dans toute la bureaucratie: acte, notaire, impôts et plus.' },
       { emoji: '🔨', titulo: 'Rénovation', desc: 'Nous coordonnons tout avec nos architectes et constructeurs de confiance.' },
-      { emoji: '🔑', titulo: 'Clé en main', desc: 'De la décision d\'achat jusqu\'aux clés. Nous gérons absolument tout.' },
+      { emoji: '🔑', titulo: 'Clé en main', desc: "De la décision d'achat jusqu'aux clés. Nous gérons absolument tout." },
       { emoji: '📈', titulo: 'Conseil en investissement', desc: 'Nous identifions les opportunités à plus fort potentiel de valorisation.' },
     ],
     razones: [
-      { icono: '✅', texto: 'Nous travaillons uniquement pour l\'acheteur' },
+      { icono: '✅', texto: "Nous travaillons uniquement pour l'acheteur" },
       { icono: '✅', texto: 'Nous connaissons le prix réel de clôture de chaque quartier' },
       { icono: '✅', texto: 'Plus de 100 transactions accompagnées à Valence' },
       { icono: '✅', texto: 'Processus 100% transparent' },
@@ -181,36 +181,24 @@ const contenido = {
   },
 }
 
-// JSON-LD Schema for SEO
 function SchemaOrg({ idioma }) {
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'RealEstateAgent',
     name: 'Tu Asesor Inmobiliario Valencia',
     description: contenido[idioma]?.meta?.descripcion,
-    areaServed: {
-      '@type': 'City',
-      name: 'Valencia',
-      addressCountry: 'ES',
-    },
-    serviceType: ['Buyer\'s Agent', 'Property Search', 'Real Estate Negotiation', 'Property Management'],
+    areaServed: { '@type': 'City', name: 'Valencia', addressCountry: 'ES' },
+    serviceType: ["Buyer's Agent", 'Property Search', 'Real Estate Negotiation', 'Property Management'],
     knowsLanguage: ['es', 'en', 'fr', 'de'],
     url: 'https://tusitio.com/conocenos',
   }
-  return (
-    <script
-      type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-    />
-  )
+  return <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }} />
 }
 
 export default function Conocenos() {
   const [idioma, setIdioma] = useState('es')
-  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
-    setMounted(true)
     const guardado = localStorage.getItem('idioma') || 'es'
     setIdioma(guardado)
     const handler = () => setIdioma(localStorage.getItem('idioma') || 'es')
@@ -225,31 +213,31 @@ export default function Conocenos() {
       <SchemaOrg idioma={idioma} />
 
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=DM+Sans:wght@300;400;500;600&display=swap');
-
         :root {
-          --navy: #0B1F3A;
-          --navy-mid: #152D52;
+          --navy:       #0B1F3A;
+          --navy-mid:   #152D52;
           --navy-light: #1A3A6B;
-          --green: #2d5a0e;
-          --green-light: #3a7312;
-          --green-pale: #f0f7ec;
-          --green-pale2: #e8f0e8;
-          --text: #222;
-          --text-muted: #555;
-          --text-light: #888;
-          --white: #fff;
-          --bg: #f8faf8;
-          --card-shadow: 0 4px 24px rgba(0,0,0,0.07);
-          --card-shadow-hover: 0 8px 40px rgba(45,90,14,0.13);
-          --radius: 16px;
-          --radius-lg: 24px;
+          --gold:       #C9A84C;
+          --gold-light: #D4B96A;
+          --gold-bg:    rgba(201,168,76,0.08);
+          --gold-border:rgba(201,168,76,0.25);
+          --bg:         #F8F5EF;
+          --bg-card:    #FFFFFF;
+          --border:     #D4C9B0;
+          --border-light:#EDE8DE;
+          --text:       #0B1F3A;
+          --text-muted: #4A5568;
+          --text-light: #8A9BB0;
+          --radius:     16px;
+          --radius-lg:  20px;
+          --shadow:     0 2px 16px rgba(11,31,58,0.06);
+          --shadow-hover:0 8px 32px rgba(11,31,58,0.12);
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
 
         .conocenos-page {
-          font-family: 'DM Sans', sans-serif;
+          font-family: Arial, sans-serif;
           background: var(--bg);
           color: var(--text);
           min-height: 100vh;
@@ -258,54 +246,56 @@ export default function Conocenos() {
         /* ── HERO ── */
         .hero {
           background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 60%, var(--navy-light) 100%);
-          padding: 80px 32px 72px;
+          padding: 80px 48px 68px;
           text-align: center;
-          color: var(--white);
+          color: #fff;
           position: relative;
           overflow: hidden;
         }
         .hero::before {
           content: '';
           position: absolute;
-          inset: 0;
-          background: radial-gradient(ellipse 60% 50% at 70% 30%, rgba(45,90,14,0.18) 0%, transparent 70%);
-          pointer-events: none;
+          top: 0; left: 0; right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
         .hero-eyebrow {
-          display: inline-block;
-          background: rgba(255,255,255,0.12);
-          border: 1px solid rgba(255,255,255,0.2);
-          color: rgba(255,255,255,0.85);
-          font-size: 13px;
-          font-weight: 500;
-          letter-spacing: 0.08em;
+          display: inline-flex;
+          align-items: center;
+          gap: 10px;
+          margin-bottom: 22px;
+          color: var(--gold);
+          font-size: 11px;
+          letter-spacing: 0.2em;
           text-transform: uppercase;
-          padding: 6px 18px;
-          border-radius: 100px;
-          margin-bottom: 24px;
+        }
+        .hero-eyebrow-line {
+          width: 28px;
+          height: 1px;
+          background: var(--gold);
+          display: inline-block;
         }
         .hero h1 {
-          font-family: 'Playfair Display', serif;
-          font-size: clamp(28px, 5vw, 46px);
-          font-weight: 800;
-          color: var(--white);
+          font-family: Georgia, serif;
+          font-size: clamp(30px, 5vw, 48px);
+          font-weight: 700;
+          color: #fff;
           line-height: 1.2;
           max-width: 680px;
-          margin: 0 auto 20px;
+          margin: 0 auto 18px;
         }
         .hero-sub {
-          font-size: clamp(15px, 2vw, 18px);
-          color: rgba(255,255,255,0.82);
-          max-width: 560px;
+          font-size: clamp(15px, 2vw, 17px);
+          color: rgba(255,255,255,0.65);
+          max-width: 520px;
           margin: 0 auto;
           line-height: 1.7;
-          font-weight: 300;
         }
 
         /* ── STATS BAR ── */
         .stats-bar {
-          background: var(--white);
-          border-bottom: 1px solid var(--green-pale2);
+          background: var(--bg-card);
+          border-bottom: 1px solid var(--border-light);
           padding: 32px 24px;
         }
         .stats-inner {
@@ -313,147 +303,155 @@ export default function Conocenos() {
           margin: 0 auto;
           display: grid;
           grid-template-columns: repeat(4, 1fr);
-          gap: 0;
         }
         .stat-item {
           text-align: center;
           padding: 8px 16px;
-          border-right: 1px solid var(--green-pale2);
+          border-right: 1px solid var(--border-light);
         }
         .stat-item:last-child { border-right: none; }
         .stat-valor {
-          font-family: 'Playfair Display', serif;
-          font-size: 32px;
+          font-family: Georgia, serif;
+          font-size: 30px;
           font-weight: 700;
-          color: var(--green);
+          color: var(--gold);
           line-height: 1;
           margin-bottom: 6px;
         }
         .stat-label {
-          font-size: 13px;
-          color: var(--text-muted);
-          font-weight: 400;
+          font-size: 12px;
+          color: var(--text-light);
         }
 
-        /* ── MAIN CONTENT ── */
+        /* ── MAIN ── */
         .main-content {
           max-width: 900px;
           margin: 0 auto;
-          padding: 72px 24px;
+          padding: 64px 24px;
         }
 
-        /* ── QUIENES SOMOS ── */
-        .quienes-section {
-          display: grid;
-          grid-template-columns: 1fr 1fr;
-          gap: 48px;
-          margin-bottom: 80px;
-          align-items: center;
-        }
-        .quienes-left h2 {
-          font-family: 'Playfair Display', serif;
-          font-size: 32px;
-          font-weight: 700;
-          color: var(--green);
-          margin-bottom: 20px;
-          line-height: 1.25;
-        }
-        .quienes-left p {
-          font-size: 15px;
-          color: var(--text-muted);
-          line-height: 1.85;
-          margin-bottom: 16px;
-        }
-        .quienes-right {
-          background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-          border-radius: var(--radius-lg);
-          padding: 36px 32px;
-          color: var(--white);
-        }
-        .quienes-right-quote {
-          font-family: 'Playfair Display', serif;
-          font-size: 18px;
-          line-height: 1.6;
-          color: rgba(255,255,255,0.92);
-          font-style: italic;
-          border-left: 3px solid rgba(45,90,14,0.8);
-          padding-left: 20px;
-        }
-        .quienes-right-tag {
-          margin-top: 24px;
-          display: inline-block;
-          background: rgba(45,90,14,0.35);
-          color: rgba(255,255,255,0.9);
-          font-size: 12px;
-          font-weight: 600;
-          letter-spacing: 0.07em;
-          text-transform: uppercase;
-          padding: 6px 14px;
-          border-radius: 100px;
-        }
-
-        /* ── DIVIDER ── */
+        /* ── SECTION DIVIDER ── */
         .section-label {
           display: flex;
           align-items: center;
           gap: 16px;
-          margin-bottom: 36px;
+          margin-bottom: 32px;
         }
         .section-label h2 {
-          font-family: 'Playfair Display', serif;
-          font-size: 26px;
+          font-family: Georgia, serif;
+          font-size: 24px;
           font-weight: 700;
-          color: var(--green);
+          color: var(--navy);
           white-space: nowrap;
+        }
+        .section-label::before {
+          content: '';
+          width: 24px;
+          height: 1px;
+          background: var(--gold);
+          flex-shrink: 0;
         }
         .section-label::after {
           content: '';
           flex: 1;
           height: 1px;
-          background: var(--green-pale2);
+          background: var(--border-light);
         }
 
-        /* ── SERVICIOS GRID ── */
+        /* ── QUIÉNES SOMOS ── */
+        .quienes-section {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 40px;
+          margin-bottom: 72px;
+          align-items: center;
+        }
+        .quienes-left h2 {
+          font-family: Georgia, serif;
+          font-size: 28px;
+          font-weight: 700;
+          color: var(--navy);
+          margin-bottom: 18px;
+          line-height: 1.3;
+        }
+        .quienes-left p {
+          font-size: 15px;
+          color: var(--text-muted);
+          line-height: 1.8;
+          margin-bottom: 14px;
+        }
+        .quienes-right {
+          background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+          border-radius: var(--radius-lg);
+          padding: 36px 32px;
+          color: #fff;
+        }
+        .quienes-right-quote {
+          font-family: Georgia, serif;
+          font-size: 17px;
+          line-height: 1.65;
+          color: rgba(255,255,255,0.9);
+          font-style: italic;
+          border-left: 3px solid var(--gold);
+          padding-left: 20px;
+        }
+        .quienes-right-tag {
+          margin-top: 22px;
+          display: inline-block;
+          background: rgba(201,168,76,0.2);
+          color: var(--gold);
+          font-size: 11px;
+          font-weight: 600;
+          letter-spacing: 0.1em;
+          text-transform: uppercase;
+          padding: 5px 14px;
+          border-radius: 4px;
+          border: 1px solid var(--gold-border);
+        }
+
+        /* ── SERVICIOS ── */
         .servicios-grid {
           display: grid;
           grid-template-columns: repeat(3, 1fr);
-          gap: 18px;
-          margin-bottom: 72px;
+          gap: 16px;
+          margin-bottom: 64px;
         }
         .servicio-card {
-          background: var(--white);
+          background: var(--bg-card);
           border-radius: var(--radius);
           padding: 28px 24px;
-          border: 1px solid var(--green-pale2);
-          box-shadow: var(--card-shadow);
-          transition: box-shadow 0.25s, transform 0.25s, border-color 0.25s;
+          border: 1px solid var(--border);
+          box-shadow: var(--shadow);
+          transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
           position: relative;
           overflow: hidden;
+          cursor: default;
         }
         .servicio-card::before {
           content: '';
           position: absolute;
           top: 0; left: 0; right: 0;
-          height: 3px;
-          background: linear-gradient(90deg, var(--green), var(--green-light));
+          height: 2px;
+          background: linear-gradient(90deg, transparent, var(--gold), transparent);
           opacity: 0;
-          transition: opacity 0.25s;
+          transition: opacity 0.2s;
         }
         .servicio-card:hover {
-          box-shadow: var(--card-shadow-hover);
+          box-shadow: var(--shadow-hover);
           transform: translateY(-3px);
-          border-color: rgba(45,90,14,0.2);
+          border-color: var(--gold-border);
         }
         .servicio-card:hover::before { opacity: 1; }
         .servicio-emoji {
-          font-size: 28px;
+          font-size: 26px;
           margin-bottom: 14px;
           display: block;
         }
         .servicio-titulo {
+          font-family: Georgia, serif;
           font-size: 15px;
-          font-weight: 600;
-          color: var(--green);
+          font-weight: 700;
+          color: var(--navy);
           margin-bottom: 8px;
         }
         .servicio-desc {
@@ -462,39 +460,35 @@ export default function Conocenos() {
           line-height: 1.65;
         }
 
-        /* ── POR QUÉ ELEGIRNOS ── */
+        /* ── POR QUÉ ── */
         .porque-section {
-          background: var(--green-pale);
+          background: var(--bg-card);
           border-radius: var(--radius-lg);
-          padding: 48px 44px;
-          margin-bottom: 72px;
-          border: 1px solid var(--green-pale2);
+          padding: 44px 40px;
+          margin-bottom: 64px;
+          border: 1px solid var(--border);
+          box-shadow: var(--shadow);
         }
         .razones-grid {
           display: grid;
           grid-template-columns: 1fr 1fr;
-          gap: 16px;
-          margin-top: 32px;
+          gap: 14px;
+          margin-top: 28px;
+          list-style: none;
         }
         .razon-item {
           display: flex;
           align-items: flex-start;
-          gap: 12px;
-          background: var(--white);
-          border-radius: 12px;
-          padding: 16px 20px;
-          border: 1px solid var(--green-pale2);
+          gap: 10px;
           font-size: 14px;
-          color: var(--text);
-          line-height: 1.5;
-          font-weight: 500;
-          box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+          color: var(--text-muted);
+          line-height: 1.55;
+          padding: 14px 18px;
+          background: var(--bg);
+          border-radius: 10px;
+          border: 1px solid var(--border-light);
         }
-        .razon-icono {
-          font-size: 16px;
-          flex-shrink: 0;
-          margin-top: 1px;
-        }
+        .razon-icono { flex-shrink: 0; margin-top: 1px; }
 
         /* ── CTA ── */
         .cta-section {
@@ -502,47 +496,47 @@ export default function Conocenos() {
           border-radius: var(--radius-lg);
           padding: 56px 40px;
           text-align: center;
-          color: var(--white);
+          color: #fff;
           position: relative;
           overflow: hidden;
         }
         .cta-section::before {
           content: '';
           position: absolute;
-          inset: 0;
-          background: radial-gradient(ellipse 50% 60% at 80% 20%, rgba(45,90,14,0.2) 0%, transparent 70%);
-          pointer-events: none;
+          top: 0; left: 0; right: 0;
+          height: 2px;
+          background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
         .cta-section h2 {
-          font-family: 'Playfair Display', serif;
-          font-size: 30px;
+          font-family: Georgia, serif;
+          font-size: 28px;
           font-weight: 700;
-          color: var(--white);
+          color: #fff;
           margin-bottom: 12px;
         }
         .cta-section p {
           font-size: 16px;
-          color: rgba(255,255,255,0.8);
-          margin-bottom: 32px;
-          font-weight: 300;
+          color: rgba(255,255,255,0.65);
+          margin-bottom: 30px;
+          line-height: 1.6;
         }
         .cta-btn {
           display: inline-block;
-          background: var(--green);
-          color: var(--white);
-          padding: 15px 40px;
-          border-radius: 100px;
-          font-weight: 600;
-          font-size: 16px;
+          background: var(--gold);
+          color: var(--navy);
+          padding: 14px 40px;
+          border-radius: 4px;
+          font-weight: 700;
+          font-size: 15px;
           text-decoration: none;
+          letter-spacing: 0.04em;
           transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
-          box-shadow: 0 4px 20px rgba(45,90,14,0.4);
-          position: relative;
+          box-shadow: 0 4px 16px rgba(201,168,76,0.35);
         }
         .cta-btn:hover {
-          background: var(--green-light);
+          background: var(--gold-light);
           transform: translateY(-2px);
-          box-shadow: 0 8px 28px rgba(45,90,14,0.5);
+          box-shadow: 0 8px 24px rgba(201,168,76,0.45);
         }
 
         /* ── RESPONSIVE ── */
@@ -551,15 +545,15 @@ export default function Conocenos() {
           .stats-inner { grid-template-columns: repeat(2, 1fr); }
           .stat-item:nth-child(2) { border-right: none; }
           .stat-item:nth-child(3), .stat-item:nth-child(4) {
-            border-top: 1px solid var(--green-pale2);
+            border-top: 1px solid var(--border-light);
             padding-top: 20px;
           }
-          .quienes-section { grid-template-columns: 1fr; gap: 28px; }
+          .quienes-section { grid-template-columns: 1fr; gap: 24px; }
           .servicios-grid { grid-template-columns: 1fr 1fr; }
           .razones-grid { grid-template-columns: 1fr; }
-          .porque-section { padding: 32px 24px; }
-          .cta-section { padding: 40px 24px; }
-          .main-content { padding: 48px 20px; }
+          .porque-section { padding: 28px 20px; }
+          .cta-section { padding: 40px 20px; }
+          .main-content { padding: 40px 16px; }
         }
         @media (max-width: 480px) {
           .servicios-grid { grid-template-columns: 1fr; }
@@ -570,12 +564,15 @@ export default function Conocenos() {
 
         {/* ── HERO ── */}
         <header className="hero" role="banner">
-          <span className="hero-eyebrow">{c.hero.eyebrow}</span>
+          <div className="hero-eyebrow">
+            <span className="hero-eyebrow-line" />
+            {c.hero.eyebrow}
+          </div>
           <h1>{c.hero.titulo}</h1>
           <p className="hero-sub">{c.hero.subtitulo}</p>
         </header>
 
-        {/* ── STATS BAR ── */}
+        {/* ── STATS ── */}
         <section className="stats-bar" aria-label="Estadísticas">
           <div className="stats-inner">
             {c.stats.map((s, i) => (
@@ -596,10 +593,8 @@ export default function Conocenos() {
               <p>{c.quienes.texto1}</p>
               <p>{c.quienes.texto2}</p>
             </div>
-            <div className="quienes-right" role="complementary">
-              <blockquote className="quienes-right-quote">
-                {c.quienes.texto2}
-              </blockquote>
+            <div className="quienes-right">
+              <blockquote className="quienes-right-quote">{c.quienes.texto2}</blockquote>
               <span className="quienes-right-tag">Valencia · Buyer's Agent</span>
             </div>
           </section>
