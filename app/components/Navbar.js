@@ -32,11 +32,12 @@ export default function Navbar() {
 
   const tr = t[idioma]
 
-  const links = [
-    { href: '/', label: tr.nav.inicio },
-    { href: '/conocenos', label: tr.nav.conocenos },
-    { href: '/noticias', label: idioma === 'es' ? 'Noticias' : idioma === 'en' ? 'News' : idioma === 'fr' ? 'Actualités' : 'Nachrichten' },
-  ]
+const links = [
+  { href: '/', label: tr.nav.inicio },
+  { href: '/barriometro', label: 'Barriometro' },
+  { href: '/conocenos', label: tr.nav.conocenos },
+  { href: '/noticias', label: idioma === 'es' ? 'Noticias' : idioma === 'en' ? 'News' : idioma === 'fr' ? 'Actualités' : 'Nachrichten' },
+]
 
   return (
     <>
