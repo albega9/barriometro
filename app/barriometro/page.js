@@ -2,9 +2,9 @@
 import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
-import { t } from './data/traducciones'
+import { t } from '../data/traducciones'
 
-const Mapa = dynamic(() => import('./components/Mapa'), { ssr: false })
+const Mapa = dynamic(() => import('../components/Mapa'), { ssr: false })
 
 export default function Home() {
   const [idioma, setIdioma] = useState('es')
