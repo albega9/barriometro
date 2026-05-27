@@ -1,3 +1,5 @@
+import HeroSlider from './HeroSlider'
+
 export default function Home() {
   return (
     <main style={{ fontFamily: 'Georgia, serif', minHeight: '100vh', background: '#F8F5EF' }}>
@@ -92,10 +94,8 @@ export default function Home() {
           position: absolute; top: 0; left: 0; right: 0; height: 2px;
           background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
-
         .hp-hero-content {
-          position: relative; z-index: 2;
-          padding: 0 48px; max-width: 680px;
+          position: relative; z-index: 2; padding: 0 48px; max-width: 680px;
         }
         .hp-hero-eyebrow {
           display: flex; align-items: center; gap: 12px; margin-bottom: 20px;
@@ -147,7 +147,6 @@ export default function Home() {
           border-radius: 1px; cursor: pointer; transition: all 0.3s;
         }
         .hp-dot.active { width: 36px; background: var(--gold); }
-
         .hp-hero-scene {
           position: absolute; bottom: 32px; right: 48px; z-index: 3; text-align: right;
         }
@@ -172,15 +171,13 @@ export default function Home() {
           font-family: 'DM Sans', sans-serif;
           color: rgba(255,255,255,0.55); font-size: 13px;
         }
-        .hp-trust-icon { color: var(--gold); font-size: 15px; }
         .hp-trust-divider { width: 1px; height: 20px; background: rgba(255,255,255,0.12); }
 
         /* ── SECTION COMMONS ── */
         .hp-section-header { text-align: center; margin-bottom: 52px; }
         .hp-section-eyebrow {
-          display: inline-flex; align-items: center; gap: 10px;
-          margin-bottom: 14px; color: var(--gold);
-          font-family: 'DM Sans', sans-serif;
+          display: inline-flex; align-items: center; gap: 10px; margin-bottom: 14px;
+          color: var(--gold); font-family: 'DM Sans', sans-serif;
           font-size: 11px; letter-spacing: 0.2em; text-transform: uppercase;
         }
         .hp-section-eyebrow-line { width: 20px; height: 1px; background: var(--gold); }
@@ -212,10 +209,7 @@ export default function Home() {
           background: linear-gradient(90deg, transparent, var(--gold), transparent);
           opacity: 0; transition: opacity 0.2s;
         }
-        .hp-service-card:hover {
-          transform: translateY(-4px); box-shadow: var(--shadow-hover);
-          border-color: var(--gold-border);
-        }
+        .hp-service-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-hover); border-color: var(--gold-border); }
         .hp-service-card:hover::before { opacity: 1; }
         .hp-service-num {
           font-family: 'Playfair Display', serif;
@@ -233,18 +227,13 @@ export default function Home() {
           font-size: 13.5px; color: var(--text-muted); line-height: 1.7; font-weight: 300;
         }
         .hp-service-link {
-          display: inline-flex; align-items: center; gap: 6px;
-          margin-top: 18px; font-family: 'DM Sans', sans-serif;
-          font-size: 11px; color: var(--gold);
-          font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase;
-          text-decoration: none;
+          display: inline-flex; align-items: center; gap: 6px; margin-top: 18px;
+          font-family: 'DM Sans', sans-serif; font-size: 11px; color: var(--gold);
+          font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; text-decoration: none;
         }
 
         /* ── PROCESS ── */
-        .hp-process {
-          background: var(--navy); padding: 80px 48px;
-          position: relative; overflow: hidden;
-        }
+        .hp-process { background: var(--navy); padding: 80px 48px; position: relative; overflow: hidden; }
         .hp-process::before {
           content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
           background: linear-gradient(90deg, transparent, var(--gold) 40%, transparent);
@@ -252,8 +241,7 @@ export default function Home() {
         .hp-process .hp-section-title { color: #fff; }
         .hp-process .hp-section-sub { color: rgba(255,255,255,0.45); }
         .hp-process-steps {
-          display: flex; max-width: 960px; margin: 0 auto;
-          position: relative;
+          display: flex; max-width: 960px; margin: 0 auto; position: relative;
         }
         .hp-process-steps::before {
           content: ''; position: absolute;
@@ -262,12 +250,10 @@ export default function Home() {
         }
         .hp-process-step { flex: 1; text-align: center; padding: 0 12px; }
         .hp-process-num {
-          width: 56px; height: 56px; border-radius: 50%;
-          border: 1px solid var(--gold);
+          width: 56px; height: 56px; border-radius: 50%; border: 1px solid var(--gold);
           display: flex; align-items: center; justify-content: center;
           margin: 0 auto 18px; background: var(--navy); position: relative; z-index: 1;
-          font-family: 'Playfair Display', serif;
-          font-size: 20px; font-weight: 700; color: var(--gold);
+          font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--gold);
         }
         .hp-process-step-title {
           font-family: 'Playfair Display', serif;
@@ -281,14 +267,12 @@ export default function Home() {
         /* ── SCENES GRID ── */
         .hp-scenes { padding: 80px 48px; background: var(--bg); }
         .hp-scenes-grid {
-          display: grid;
-          grid-template-columns: 1.4fr 1fr 1fr;
-          grid-template-rows: 240px 240px;
-          gap: 12px; max-width: 960px; margin: 0 auto;
+          display: grid; grid-template-columns: 1.4fr 1fr 1fr;
+          grid-template-rows: 240px 240px; gap: 12px; max-width: 960px; margin: 0 auto;
         }
         .hp-scene-item {
           border-radius: var(--radius); overflow: hidden; position: relative;
-          cursor: pointer; transition: transform 0.3s, box-shadow 0.3s;
+          cursor: pointer; transition: transform 0.3s, box-shadow 0.3s; text-decoration: none;
         }
         .hp-scene-item:hover { transform: scale(1.02); box-shadow: 0 16px 48px rgba(11,31,58,0.2); z-index: 2; }
         .hp-scene-item:first-child { grid-row: span 2; }
@@ -303,9 +287,7 @@ export default function Home() {
           position: absolute; inset: 0;
           background: linear-gradient(to top, rgba(11,31,58,0.88) 0%, rgba(11,31,58,0.25) 55%, transparent 100%);
         }
-        .hp-scene-content {
-          position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 22px;
-        }
+        .hp-scene-content { position: absolute; bottom: 0; left: 0; right: 0; padding: 20px 22px; }
         .hp-scene-tag {
           font-family: 'DM Sans', sans-serif;
           font-size: 9px; letter-spacing: 0.15em; text-transform: uppercase;
@@ -316,12 +298,10 @@ export default function Home() {
           font-size: 16px; font-weight: 700; color: #fff; line-height: 1.3;
         }
         .hp-scene-arrow {
-          position: absolute; top: 14px; right: 14px;
-          width: 28px; height: 28px; border-radius: 50%;
-          border: 1px solid rgba(255,255,255,0.2);
+          position: absolute; top: 14px; right: 14px; width: 28px; height: 28px;
+          border-radius: 50%; border: 1px solid rgba(255,255,255,0.2);
           display: flex; align-items: center; justify-content: center;
-          color: rgba(255,255,255,0.5); font-size: 13px;
-          opacity: 0; transition: opacity 0.2s;
+          color: rgba(255,255,255,0.5); font-size: 13px; opacity: 0; transition: opacity 0.2s;
         }
         .hp-scene-item:hover .hp-scene-arrow { opacity: 1; }
         .hp-scene-c1 { background: linear-gradient(135deg, #0B1F3A, #1A3A6B); }
@@ -333,33 +313,19 @@ export default function Home() {
         /* ── STATS ── */
         .hp-stats {
           background: var(--bg-card);
-          border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
-          padding: 48px;
+          border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 48px;
         }
-        .hp-stats-inner {
-          max-width: 960px; margin: 0 auto;
-          display: grid; grid-template-columns: repeat(4, 1fr);
-        }
-        .hp-stat {
-          text-align: center; padding: 0 20px;
-          border-right: 1px solid var(--border-light);
-        }
+        .hp-stats-inner { max-width: 960px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
+        .hp-stat { text-align: center; padding: 0 20px; border-right: 1px solid var(--border-light); }
         .hp-stat:last-child { border-right: none; }
         .hp-stat-val {
           font-family: 'Playfair Display', serif;
-          font-size: 40px; font-weight: 700; color: var(--gold);
-          line-height: 1; margin-bottom: 8px;
+          font-size: 40px; font-weight: 700; color: var(--gold); line-height: 1; margin-bottom: 8px;
         }
-        .hp-stat-label {
-          font-family: 'DM Sans', sans-serif;
-          font-size: 13px; color: var(--text-light);
-        }
+        .hp-stat-label { font-family: 'DM Sans', sans-serif; font-size: 13px; color: var(--text-light); }
 
         /* ── CTA ── */
-        .hp-cta {
-          background: var(--navy); padding: 88px 48px;
-          text-align: center; position: relative; overflow: hidden;
-        }
+        .hp-cta { background: var(--navy); padding: 88px 48px; text-align: center; position: relative; overflow: hidden; }
         .hp-cta::before {
           content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
           background: linear-gradient(90deg, transparent, var(--gold) 40%, transparent);
@@ -372,8 +338,7 @@ export default function Home() {
         .hp-cta-line { width: 20px; height: 1px; background: var(--gold); }
         .hp-cta h2 {
           font-family: 'Playfair Display', serif;
-          font-size: 40px; font-weight: 700; color: #fff;
-          line-height: 1.2; margin-bottom: 16px;
+          font-size: 40px; font-weight: 700; color: #fff; line-height: 1.2; margin-bottom: 16px;
         }
         .hp-cta-sub {
           font-family: 'DM Sans', sans-serif;
@@ -387,8 +352,7 @@ export default function Home() {
           background: var(--bg); padding: 22px 48px;
           border-top: 1px solid var(--border);
           display: flex; align-items: center; justify-content: center; gap: 8px;
-          font-family: 'DM Sans', sans-serif;
-          font-size: 12px; color: var(--text-light);
+          font-family: 'DM Sans', sans-serif; font-size: 12px; color: var(--text-light);
         }
 
         /* ── RESPONSIVE ── */
@@ -406,10 +370,7 @@ export default function Home() {
           .hp-process-steps { flex-direction: column; gap: 32px; }
           .hp-process-steps::before { display: none; }
           .hp-scenes { padding: 56px 20px; }
-          .hp-scenes-grid {
-            grid-template-columns: 1fr 1fr;
-            grid-template-rows: 180px 180px 180px;
-          }
+          .hp-scenes-grid { grid-template-columns: 1fr 1fr; grid-template-rows: 180px 180px 180px; }
           .hp-scene-item:first-child { grid-row: span 1; grid-column: span 2; }
           .hp-stats { padding: 36px 20px; }
           .hp-stats-inner { grid-template-columns: 1fr 1fr; gap: 20px 0; }
@@ -421,7 +382,7 @@ export default function Home() {
         }
       `}</style>
 
-      {/* ── NAV ── */}
+      {/* ── NAV + HERO (hero es client component) ── */}
       <section style={{ position: 'relative' }}>
         <nav className="hp-nav">
           <div className="hp-nav-logo">Valencia<span>City</span></div>
@@ -432,84 +393,8 @@ export default function Home() {
             <a href="/contactanos" className="hp-nav-cta">Contáctanos</a>
           </div>
         </nav>
-
-        {/* ── HERO ── */}
-        <div className="hp-hero" id="hp-hero">
-          <div className="hp-hero-slides">
-            <div className="hp-slide hp-slide-1" id="slide-0">
-              <div className="hp-slide-inner">
-                <div className="hp-slide-icon">🏛️</div>
-                <span className="hp-slide-sublabel">Ciudad de las Artes · Valencia</span>
-              </div>
-            </div>
-            <div className="hp-slide hp-slide-2 hidden" id="slide-1">
-              <div className="hp-slide-inner">
-                <div className="hp-slide-icon">🏘️</div>
-                <span className="hp-slide-sublabel">Barrio del Carmen · Extramurs</span>
-              </div>
-            </div>
-            <div className="hp-slide hp-slide-3 hidden" id="slide-2">
-              <div className="hp-slide-inner">
-                <div className="hp-slide-icon">🛋️</div>
-                <span className="hp-slide-sublabel">Reforma & Interiorismo</span>
-              </div>
-            </div>
-          </div>
-
-          <div className="hp-hero-overlay" />
-          <div className="hp-hero-goldline" />
-          <div className="hp-hero-overlay-bottom" />
-
-          <div className="hp-hero-content">
-            <div className="hp-hero-eyebrow">
-              <span className="hp-hero-eyebrow-line" />
-              <span>Asesores inmobiliarios · Valencia</span>
-            </div>
-            <h1>Tu piso en Valencia,<br /><em>encontrado.</em></h1>
-            <p className="hp-hero-sub">
-              Buscamos, negociamos, reformamos y decoramos. Tú solo tienes que llamarnos — nosotros nos encargamos de todo lo demás.
-            </p>
-            <div className="hp-hero-actions">
-              <a href="/contactanos" className="hp-btn-gold">Busca mi piso →</a>
-              <a href="/servicios" className="hp-btn-ghost">Ver servicios</a>
-            </div>
-          </div>
-
-          <div className="hp-hero-dots" id="hp-dots">
-            <div className="hp-dot active" onClick={() => typeof goSlide !== 'undefined' && goSlide(0)} />
-            <div className="hp-dot" onClick={() => typeof goSlide !== 'undefined' && goSlide(1)} />
-            <div className="hp-dot" onClick={() => typeof goSlide !== 'undefined' && goSlide(2)} />
-          </div>
-          <div className="hp-hero-scene">
-            <div className="hp-hero-scene-label">Escena</div>
-            <div className="hp-hero-scene-name" id="scene-name">Ciudad de las Artes</div>
-          </div>
-        </div>
+        <HeroSlider />
       </section>
-
-      {/* ── HERO SLIDER SCRIPT ── */}
-      <script dangerouslySetInnerHTML={{ __html: `
-        (function() {
-          var scenes = ['Ciudad de las Artes', 'Barrio del Carmen', 'Reforma & Interiorismo'];
-          var current = 0;
-          var timer;
-          window.goSlide = function(n) {
-            var prev = document.getElementById('slide-' + current);
-            var dots = document.querySelectorAll('.hp-dot');
-            if (prev) prev.classList.add('hidden');
-            if (dots[current]) dots[current].classList.remove('active');
-            current = n;
-            var next = document.getElementById('slide-' + current);
-            if (next) next.classList.remove('hidden');
-            if (dots[current]) dots[current].classList.add('active');
-            var label = document.getElementById('scene-name');
-            if (label) label.textContent = scenes[current];
-            clearInterval(timer);
-            timer = setInterval(function() { window.goSlide((current + 1) % 3); }, 5000);
-          };
-          timer = setInterval(function() { window.goSlide((current + 1) % 3); }, 5000);
-        })();
-      `}} />
 
       {/* ── TRUST BAR ── */}
       <div className="hp-trust">
@@ -518,11 +403,11 @@ export default function Home() {
           { icon: '🏅', text: '+100 operaciones en Valencia' },
           { icon: '⏱️', text: 'Respuesta en menos de 24h' },
           { icon: '💶', text: 'Sin comisiones del vendedor' },
-        ].map((item, i) => (
+        ].map((item, i, arr) => (
           <div key={i} style={{ display: 'contents' }}>
             {i > 0 && <div className="hp-trust-divider" />}
             <div className="hp-trust-item">
-              <span className="hp-trust-icon">{item.icon}</span>
+              <span>{item.icon}</span>
               {item.text}
             </div>
           </div>
@@ -542,19 +427,19 @@ export default function Home() {
         </div>
         <div className="hp-services-grid">
           {[
-            { num: '01', emoji: '🗺️', titulo: 'Búsqueda de piso', desc: 'Analizamos tu presupuesto, estilo de vida y objetivos para encontrarte el piso ideal en el mejor barrio de Valencia para ti.', href: '/servicios' },
-            { num: '02', emoji: '💬', titulo: 'Negociación', desc: 'Negociamos en tu nombre. Conocemos los precios reales de cierre de cada zona y conseguimos el mejor precio posible.', href: '/servicios' },
-            { num: '03', emoji: '📋', titulo: 'Gestión de la compra', desc: 'Nota simple, escrituras, notaría, impuestos. Te lo gestionamos todo para que no tengas que preocuparte por nada.', href: '/servicios' },
-            { num: '04', emoji: '🔨', titulo: 'Reforma integral', desc: 'Coordinamos arquitectos y constructores de confianza. Presupuesto cerrado desde el primer día, sin sorpresas.', href: '/servicios' },
-            { num: '05', emoji: '🛋️', titulo: 'Interiorismo', desc: 'Diseñamos y amueblamos tu nuevo hogar. Un espacio que refleja tu personalidad y maximiza el valor de tu inversión.', href: '/servicios' },
-            { num: '06', emoji: '📈', titulo: 'Asesoría de inversión', desc: 'Identificamos oportunidades con alto potencial de revalorización antes de que el mercado las descubra.', href: '/servicios' },
+            { num: '01', emoji: '🗺️', titulo: 'Búsqueda de piso',     desc: 'Analizamos tu presupuesto, estilo de vida y objetivos para encontrarte el piso ideal en el mejor barrio de Valencia para ti.' },
+            { num: '02', emoji: '💬', titulo: 'Negociación',           desc: 'Negociamos en tu nombre. Conocemos los precios reales de cierre de cada zona y conseguimos el mejor precio posible.' },
+            { num: '03', emoji: '📋', titulo: 'Gestión de la compra',  desc: 'Nota simple, escrituras, notaría, impuestos. Te lo gestionamos todo para que no tengas que preocuparte por nada.' },
+            { num: '04', emoji: '🔨', titulo: 'Reforma integral',      desc: 'Coordinamos arquitectos y constructores de confianza. Presupuesto cerrado desde el primer día, sin sorpresas.' },
+            { num: '05', emoji: '🛋️', titulo: 'Interiorismo',          desc: 'Diseñamos y amueblamos tu nuevo hogar. Un espacio que refleja tu personalidad y maximiza el valor de tu inversión.' },
+            { num: '06', emoji: '📈', titulo: 'Asesoría de inversión', desc: 'Identificamos oportunidades con alto potencial de revalorización antes de que el mercado las descubra.' },
           ].map((s, i) => (
             <div key={i} className="hp-service-card">
               <div className="hp-service-num">{s.num}</div>
               <span className="hp-service-emoji">{s.emoji}</span>
               <div className="hp-service-title">{s.titulo}</div>
               <p className="hp-service-desc">{s.desc}</p>
-              <a href={s.href} className="hp-service-link">Saber más →</a>
+              <a href="/servicios" className="hp-service-link">Saber más →</a>
             </div>
           ))}
         </div>
@@ -573,11 +458,11 @@ export default function Home() {
         </div>
         <div className="hp-process-steps">
           {[
-            { n: '1', titulo: 'Llamada inicial', desc: 'Entendemos qué buscas, tu presupuesto y tus prioridades' },
-            { n: '2', titulo: 'Búsqueda activa', desc: 'Filtramos el mercado y te presentamos solo lo que encaja' },
+            { n: '1', titulo: 'Llamada inicial',   desc: 'Entendemos qué buscas, tu presupuesto y tus prioridades' },
+            { n: '2', titulo: 'Búsqueda activa',   desc: 'Filtramos el mercado y te presentamos solo lo que encaja' },
             { n: '3', titulo: 'Visitas y análisis', desc: 'Te acompañamos en cada visita con datos reales del barrio' },
-            { n: '4', titulo: 'Negociación', desc: 'Conseguimos el mejor precio posible en tu nombre' },
-            { n: '5', titulo: 'Cierre y llaves', desc: 'Gestionamos toda la burocracia hasta el día de la firma' },
+            { n: '4', titulo: 'Negociación',        desc: 'Conseguimos el mejor precio posible en tu nombre' },
+            { n: '5', titulo: 'Cierre y llaves',    desc: 'Gestionamos toda la burocracia hasta el día de la firma' },
           ].map((step, i) => (
             <div key={i} className="hp-process-step">
               <div className="hp-process-num">{step.n}</div>
@@ -601,13 +486,13 @@ export default function Home() {
         </div>
         <div className="hp-scenes-grid">
           {[
-            { bg: 'hp-scene-c1', emoji: '🏛️', tag: 'Barrio destacado', titulo: 'El Carmen\ny Extramurs', href: '/noticias' },
-            { bg: 'hp-scene-c2', emoji: '🌿', tag: 'Zona verde', titulo: 'Russafa', href: '/noticias' },
-            { bg: 'hp-scene-c3', emoji: '🌊', tag: 'Frente al mar', titulo: 'Cabanyal', href: '/noticias' },
-            { bg: 'hp-scene-c4', emoji: '🏙️', tag: 'Inversión', titulo: 'Nou Moles', href: '/noticias' },
-            { bg: 'hp-scene-c5', emoji: '🏡', tag: 'Premium', titulo: 'Eixample', href: '/noticias' },
+            { bg: 'hp-scene-c1', emoji: '🏛️', tag: 'Barrio destacado', titulo: 'El Carmen y Extramurs' },
+            { bg: 'hp-scene-c2', emoji: '🌿', tag: 'Zona verde',        titulo: 'Russafa' },
+            { bg: 'hp-scene-c3', emoji: '🌊', tag: 'Frente al mar',     titulo: 'Cabanyal' },
+            { bg: 'hp-scene-c4', emoji: '🏙️', tag: 'Inversión',         titulo: 'Nou Moles' },
+            { bg: 'hp-scene-c5', emoji: '🏡', tag: 'Premium',           titulo: 'Eixample' },
           ].map((scene, i) => (
-            <a key={i} href={scene.href} className={`hp-scene-item`} style={{ textDecoration: 'none' }}>
+            <a key={i} href="/noticias" className="hp-scene-item">
               <div className={`hp-scene-bg ${scene.bg}`}>
                 <div className="hp-scene-placeholder-icon">{scene.emoji}</div>
               </div>
@@ -647,12 +532,10 @@ export default function Home() {
           <span className="hp-cta-line" />
         </div>
         <h2>Tu piso en Valencia<br />empieza con una llamada</h2>
-        <p className="hp-cta-sub">
-          Cuéntanos qué buscas. En menos de 24 horas<br />te respondemos con un plan a medida.
-        </p>
+        <p className="hp-cta-sub">Cuéntanos qué buscas. En menos de 24 horas te respondemos con un plan a medida.</p>
         <div className="hp-cta-actions">
           <a href="/contactanos" className="hp-btn-gold">Contáctanos ahora →</a>
-          <a href="/servicios" className="hp-btn-ghost">Ver todos los servicios</a>
+          <a href="/servicios"   className="hp-btn-ghost">Ver todos los servicios</a>
         </div>
       </section>
 
