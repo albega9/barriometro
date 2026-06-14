@@ -384,15 +384,6 @@ export default function Home() {
 
       {/* ── NAV + HERO (hero es client component) ── */}
       <section style={{ position: 'relative' }}>
-        <nav className="hp-nav">
-          <div className="hp-nav-logo">Valencia<span>City</span></div>
-          <div className="hp-nav-links">
-            <a href="/conocenos">Conócenos</a>
-            <a href="/servicios">Servicios</a>
-            <a href="/noticias">Noticias</a>
-            <a href="/contactanos" className="hp-nav-cta">Contáctanos</a>
-          </div>
-        </nav>
         <HeroSlider />
       </section>
 
