@@ -8,7 +8,7 @@ export const metadata = {
 const noticias = [
   {
     slug: 'la-pechina-extramurs-revalorizacion',
-    fecha: 'Mayo 2026',
+    fecha: 'Marzo 2026',
     categoria: 'Análisis de barrio',
     titulo: 'La Pechina (Extramurs): el barrio que se transforma y alcanza los 3.000€/m²',
     subtitulo: 'Zonas verdes, nuevos parques y la zona naranja de aparcamiento están cambiando la cara de uno de los barrios más céntricos de Valencia.',
@@ -17,7 +17,7 @@ const noticias = [
   },
   {
     slug: 'nou-moles-lolivereta-valencia',
-    fecha: 'Mayo 2026',
+    fecha: 'Abril 2026',
     categoria: 'Análisis de barrio',
     titulo: "Nou Moles (L'Olivereta): el barrio humilde que Valencia redescubre",
     subtitulo: "De barrio obrero olvidado a una de las zonas con mayor crecimiento de la ciudad. La gentrificación orgánica más interesante de Valencia.",
@@ -26,7 +26,7 @@ const noticias = [
   },
   {
   slug: 'perez-galdos-giorgeta-barrios-revalorizacion',
-  fecha: 'Junio 2026',
+  fecha: 'Mayo 2026',
   categoria: 'Análisis urbano',
   titulo: 'Pérez Galdós y Giorgeta: la obra que puede impulsar los precios en Nou Moles, Arrancapins y Patraix',
   subtitulo: 'La transformación de una de las arterias más congestionadas de Valencia promete más zonas verdes y una fuerte mejora urbana.',
