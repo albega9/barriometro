@@ -274,7 +274,7 @@ export default function NoticiaCanalAccesoAVE() {
             <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '16px', marginBottom: '32px' }}>
               El entorno del Canal de Acceso es uno de los mercados con más proyección de Valencia. Si buscas comprar o invertir antes de que las obras terminen, podemos acompañarte con análisis real y sin compromiso.
             </p>
-            <Link href="/contacto" style={{
+            <Link href="/contactanos" style={{
               display: 'inline-block',
               background: '#8EC94C',
               color: '#0D1F0D',

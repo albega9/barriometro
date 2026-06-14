@@ -252,7 +252,7 @@ export default function NoticiaPerezGaldos() {
             <p style={{ color: 'rgba(255,255,255,0.65)', fontSize: '16px', marginBottom: '32px' }}>
               Analizamos el mercado de forma continua. Si buscas comprar o invertir en el entorno de las obras, podemos acompañarte con información real y sin compromiso.
             </p>
-            <Link href="/contacto" style={{
+            <Link href="/contactanos" style={{
               display: 'inline-block',
               background: '#C9A84C',
               color: '#0B1F3A',
