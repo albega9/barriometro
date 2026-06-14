@@ -23,7 +23,25 @@ const noticias = [
     subtitulo: "De barrio obrero olvidado a una de las zonas con mayor crecimiento de la ciudad. La gentrificación orgánica más interesante de Valencia.",
     imagen: '🏘️',
     tiempo: '5 min lectura',
-  }
+  },
+  {
+  slug: 'perez-galdos-giorgeta-barrios-revalorizacion',
+  fecha: 'Junio 2026',
+  categoria: 'Análisis urbano',
+  titulo: 'Pérez Galdós y Giorgeta: la obra que puede impulsar los precios en Nou Moles, Arrancapins y Patraix',
+  subtitulo: 'La transformación de una de las arterias más congestionadas de Valencia promete más zonas verdes y una fuerte mejora urbana.',
+  imagen: '🌳',
+  tiempo: '4 min lectura',
+},
+{
+  slug: 'canal-acceso-ave-malilla-revalorizacion',
+  fecha: 'Junio 2026',
+  categoria: 'Inversión inmobiliaria',
+  titulo: 'El soterramiento del AVE puede convertir a Malilla en uno de los barrios con más potencial de Valencia',
+  subtitulo: 'La desaparición de las vías y la expansión del Parque Central están redefiniendo el sur de la ciudad.',
+  imagen: '🚄',
+  tiempo: '5 min lectura',
+}
 ]
 
 export default function Noticias() {
